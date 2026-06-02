@@ -89,7 +89,9 @@ body {margin:0;}
 .sec-title {font-size:var(--fs-section);font-weight:700;color:var(--ink-900);line-height:1.45;letter-spacing:-0.02em;margin-bottom:var(--space-3);}
 .sec-text {font-size:var(--fs-body);line-height:var(--lh-body);color:var(--ink-700);}
 .sec-text strong {font-weight:700;color:var(--ink-900);}
-.hl {color:var(--accent);font-weight:700;}
+.hl,
+.sec-text strong.hl,
+.sec-title .hl {color:var(--accent);font-weight:700;}
 
 /* subtitle + bottom divider (Figma 섹션2 리드 라인) */
 .sec-subtitle {font-size:var(--fs-subtitle);font-weight:500;color:var(--ink-700);line-height:1.6;padding-bottom:var(--space-4);margin-bottom:var(--space-4);border-bottom:1px solid var(--line-strong);}
