@@ -2,195 +2,134 @@
 @import url('https://cdnjs.cloudflare.com/ajax/libs/pretendard/1.3.9/static/pretendard-subset.min.css');
 
 /* ============================================================
- * DESIGN TOKENS  (single source of truth)
- * Figma: Blog_example — accent green sampled #109038
+ * DESIGN TOKENS  —  Figma: Blog_example (100% 반영)
+ * 좁은 단일 칼럼 블로그. accent green #109038.
  * ============================================================ */
 :root {
 	/* Brand / accent */
-	--accent:        #109038;   /* primary green (bars, checks, highlights) */
-	--accent-ink:    #0c7330;   /* darker green — hover/active */
-	--accent-soft:   #e7f4ec;   /* light green surface tint */
+	--accent:       #109038;
+	--accent-ink:   #0c7330;
+	--accent-soft:  #e8f4ec;
 
 	/* Ink (text) */
-	--ink-900: #1a1a1a;  /* titles */
-	--ink-700: #333333;  /* body */
-	--ink-500: #666666;  /* secondary */
-	--ink-400: #999999;  /* meta / date */
+	--ink-900: #1a1a1a;   /* 제목 */
+	--ink-800: #222222;
+	--ink-700: #333333;   /* 본문 */
+	--ink-500: #555555;   /* 리드/보조 */
+	--ink-400: #888888;
+	--meta:    #b9bcc0;   /* 날짜 */
 
 	/* Surface / line */
 	--bg:          #ffffff;
-	--surface:     #fafafa;
-	--line:        #e5e5e5;
+	--placeholder: #e8e8e8;   /* 이미지 자리 */
+	--line:        #ececec;
 	--line-strong: #222222;
 
 	/* Radius */
-	--radius:    8px;
+	--radius:    10px;
 	--radius-lg: 12px;
 
 	/* Typography */
 	--font: 'Pretendard', Pretendard, -apple-system, BlinkMacSystemFont, sans-serif;
-	--fs-title:    30px;
-	--fs-section:  24px;
-	--fs-subtitle: 21px;
-	--fs-body:     18px;
-	--fs-sm:       15px;
-	--fs-xs:       14px;
-	--lh-body:     1.7;
+	--fs-title:    32px;
+	--fs-section:  20px;
+	--fs-subtitle: 17px;
+	--fs-body:     17px;
+	--fs-lead:     17px;
+	--fs-meta:     13px;
+	--fs-quote:    64px;
+	--lh-body:     1.8;
 
 	/* Spacing scale */
 	--space-1: 8px;
 	--space-2: 14px;
 	--space-3: 20px;
 	--space-4: 30px;
-	--space-5: 40px;
-	--space-6: 60px;
+	--space-5: 44px;
+	--space-6: 64px;
 
-	/* Layout */
-	--maxw: 1280px;
+	/* Layout — Figma 측정 칼럼 폭 */
+	--maxw: 640px;
 }
 
 /* ============================================================
- * UI Reset (scoped to .page)
+ * Reset (scoped to .page)
  * ============================================================ */
-.page {font-family:var(--font);font-size:var(--fs-body);color:var(--ink-700);font-weight:400;line-height:var(--lh-body);word-break:keep-all;letter-spacing:-0.36px;}
+.page {font-family:var(--font);font-size:var(--fs-body);color:var(--ink-700);font-weight:400;line-height:var(--lh-body);word-break:keep-all;letter-spacing:-0.02em;}
 .page * {margin:0;padding:0;font:inherit;}
 .page *,
 .page *::before,
 .page *::after {box-sizing:border-box;}
 .page a {text-decoration:none;cursor:pointer;color:inherit;}
-.page img {max-width:100%;}
-.page button {border:none;cursor:pointer;background-color:transparent;}
-.page sup {line-height:1;vertical-align:0px;}
+.page img {max-width:100%;display:block;}
 .page ul,
 .page ol,
 .page li {list-style:none;}
-.page input,
-.page textarea,
-.page button,
-.page select,
-.page a {-webkit-tap-highlight-color:transparent;}
 
 /* ============================================================
- * Page layout
+ * Page layout — 좁은 단일 칼럼
  * ============================================================ */
 body {margin:0;}
-.blind {position:absolute;width:1px;height:1px;clip:rect(0 0 0 0);overflow:hidden;}
-.page {max-width:var(--maxw);margin:0 auto;padding:20px 0 0;}
-.page-title {font-size:var(--fs-title);color:var(--ink-900);font-weight:700;line-height:1.4;margin-bottom:var(--space-3);}
+.page {max-width:var(--maxw);margin:0 auto;padding:40px 20px 80px;}
+.page .inner {width:100%;}
 
-/* ---- Post header extras (hero / meta / lead) ---- */
-.post-hero {border-radius:var(--radius-lg);overflow:hidden;margin-bottom:var(--space-4);background:var(--surface);}
-.post-hero img {display:block;width:100%;height:auto;}
-.post-meta {color:var(--ink-400);font-size:var(--fs-xs);margin-bottom:var(--space-4);padding-bottom:var(--space-4);border-bottom:1px solid var(--line);}
-.post-lead {font-size:var(--fs-body);color:var(--ink-500);margin-bottom:var(--space-3);}
-
-/* ============================================================
- * Chapter (목차 / Table of contents) — collapsible
- * ============================================================ */
-.chapter {border-radius:var(--radius);border:1px solid var(--line);background:var(--surface);margin-bottom:var(--space-5);padding:var(--space-4);}
-.chapter .chapter-head {border-bottom:1px solid rgba(153,153,153,.3);padding-bottom:var(--space-3);display:flex;align-items:center;}
-.chapter .chapter-title {font-size:var(--fs-section);font-weight:700;flex:1;color:var(--ink-900);padding-left:14px;position:relative;}
-.chapter .chapter-title::before {content:'';position:absolute;left:0;top:4px;bottom:4px;width:4px;border-radius:2px;background:var(--accent);}
-.chapter .chapter-toggle {font-size:0;text-indent:-9999px;overflow:hidden;white-space:nowrap;width:24px;height:24px;background:url('https://dorangflower.cafe24.com/blog/chapter_toggle.svg') no-repeat center/contain;}
-.chapter .chapter-body {overflow:hidden;transition:max-height .4s ease;}
-.chapter .chapter-body.hide {max-height:0;}
-.chapter .chapter-list {padding:var(--space-5) 0 15px 15px !important;}
-.chapter .chapter-item {margin-bottom:var(--space-2);position:relative;}
-.chapter .chapter-item:last-child {margin-bottom:0;}
-.chapter .chapter-link {color:var(--ink-700);font-size:20px;font-weight:500;position:relative;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding-right:36px;transition:color .15s;}
-.chapter .chapter-link:after {content:'';display:block;width:18px;height:14px;background:url('https://dorangflower.cafe24.com/blog/chapter_arrow.svg') no-repeat center/contain;position:absolute;top:50%;transform:translateY(-50%);right:0;}
-.chapter .chapter-link:hover {color:var(--accent);text-decoration:underline;}
+/* ---- Post header ---- */
+.post-hero {border-radius:var(--radius-lg);overflow:hidden;background:var(--placeholder);aspect-ratio:16/13;margin-bottom:var(--space-5);}
+.post-hero img {width:100%;height:100%;object-fit:cover;}
+.page-title {font-size:var(--fs-title);line-height:1.32;font-weight:800;color:var(--ink-900);letter-spacing:-0.03em;margin-bottom:var(--space-3);}
+.post-lead {font-size:var(--fs-lead);line-height:1.65;color:var(--ink-500);margin-bottom:var(--space-3);}
+.post-meta {font-size:var(--fs-meta);color:var(--meta);padding-bottom:var(--space-4);margin-bottom:var(--space-5);border-bottom:1px solid var(--line);}
 
 /* ============================================================
  * Section
  * ============================================================ */
-.sec {margin-bottom:var(--space-5);}
+.sec {margin-bottom:var(--space-6);}
 .sec:last-child {margin-bottom:0;}
 
-/* default header marker: quote icon */
-.sec-quotes-icon {margin-bottom:16px;width:24px;}
-
-/* section titles */
-.sec-title {font-size:var(--fs-title);color:var(--ink-900);font-weight:700;margin-bottom:var(--space-1);line-height:1.4;}
-.sec-subtitle {border-bottom:2px solid var(--line-strong);padding-bottom:16px;margin-bottom:16px;line-height:1.5;font-size:var(--fs-subtitle);font-weight:600;color:var(--ink-900);}
-.sec-text {font-size:var(--fs-body);color:var(--ink-700);}
+.sec-title {font-size:var(--fs-section);font-weight:700;color:var(--ink-900);line-height:1.45;letter-spacing:-0.02em;margin-bottom:var(--space-3);}
+.sec-text {font-size:var(--fs-body);line-height:var(--lh-body);color:var(--ink-700);}
 .sec-text strong {font-weight:700;color:var(--ink-900);}
-
-/* green highlight (Figma brand-word style) */
 .hl {color:var(--accent);font-weight:700;}
 
-/* accent-bar header variant: add class "sec--bar" to <section> */
-.sec--bar .sec-quotes-icon {display:none;}
-.sec--bar .sec-title {padding-left:16px;position:relative;font-size:var(--fs-section);}
-.sec--bar .sec-title::before {content:'';position:absolute;left:0;top:6px;bottom:6px;width:5px;border-radius:3px;background:var(--accent);}
+/* subtitle + bottom divider (Figma 섹션2 리드 라인) */
+.sec-subtitle {font-size:var(--fs-subtitle);font-weight:500;color:var(--ink-700);line-height:1.6;padding-bottom:var(--space-4);margin-bottom:var(--space-4);border-bottom:1px solid var(--line-strong);}
+
+/* ---- header variant ① : 그린 좌측 바 ---- */
+.sec--bar .sec-title {position:relative;padding-left:15px;}
+.sec--bar .sec-title::before {content:'';position:absolute;left:0;top:3px;bottom:3px;width:4px;border-radius:2px;background:var(--accent);}
+
+/* ---- header variant ② : 큰 따옴표 ❝ ---- */
+.sec--quote .sec-title {margin-top:var(--space-1);}
+.sec-quote-mark {font-family:Georgia,'Times New Roman',serif;font-size:var(--fs-quote);line-height:0.9;font-weight:700;color:var(--ink-900);height:34px;overflow:visible;margin-bottom:var(--space-2);}
 
 /* ============================================================
- * Image grid (3-up, static) — distinct from scrolling slide
+ * Figure (단일 큰 이미지)
  * ============================================================ */
-.img-grid {display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-2);margin-top:var(--space-4);}
-.img-grid-item {border-radius:var(--radius);overflow:hidden;background:var(--surface);aspect-ratio:1/1.1;}
-.img-grid-item img {display:block;width:100%;height:100%;object-fit:cover;}
+.sec-figure {border-radius:var(--radius-lg);overflow:hidden;background:var(--placeholder);aspect-ratio:16/10;margin:var(--space-4) 0;}
+.sec-figure img {width:100%;height:100%;object-fit:cover;}
 
 /* ============================================================
- * Image slide (horizontal scroll) — pc / mo variants
+ * Image grid (3분할)
  * ============================================================ */
-.img-slide {width:100%;margin-top:var(--space-5);}
-.img-slide .inner {overflow-x:auto;-ms-overflow-style:none;scrollbar-width:none;}
-.img-slide .inner::-webkit-scrollbar {display:none;}
-.img-slide-list {display:flex;gap:10px;min-width:max-content;}
-.img-slide-list.mo-only {display:none;}
-.img-slide-item {border-radius:5px;overflow:hidden;width:205px;flex-shrink:0;}
-.img-slide-item img {display:block;}
+.img-grid {display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:var(--space-4) 0;}
+.img-grid-item {border-radius:var(--radius);overflow:hidden;background:var(--placeholder);aspect-ratio:1/1.12;}
+.img-grid-item img {width:100%;height:100%;object-fit:cover;}
 
 /* ============================================================
- * Checklist (✓) — green check items
+ * Checklist (그린 체크)
  * ============================================================ */
-.checklist {margin-top:var(--space-3);display:flex;flex-direction:column;gap:var(--space-2);}
-.check-item {position:relative;padding-left:34px;font-size:var(--fs-body);font-weight:600;color:var(--ink-900);min-height:24px;display:flex;align-items:center;}
-.check-item::before {content:'';position:absolute;left:0;top:50%;transform:translateY(-50%);width:24px;height:24px;border-radius:6px;background:var(--accent);}
-.check-item::after {content:'';position:absolute;left:8px;top:50%;width:7px;height:12px;border:solid #fff;border-width:0 2.5px 2.5px 0;transform:translateY(-60%) rotate(45deg);}
-
-/* ============================================================
- * Product list (e-commerce cards)
- * ============================================================ */
-.product-list {display:flex;gap:10px;margin-bottom:90px;}
-.product-item .product-img {margin-bottom:var(--space-3);border-radius:var(--radius);overflow:hidden;}
-.product-item .product-info {margin:var(--space-3) 5px 0;padding:10px 0 0;border-top:3px solid #D9D9D9;}
-.product-item .product-nm {color:var(--ink-500);font-size:var(--fs-section);font-weight:700;margin-bottom:3px;}
-.product-item .product-price .origin {text-decoration:line-through;color:#BEBEBE;font-weight:300;font-size:20px;margin-right:6px;vertical-align:middle;}
-.product-item .product-price .total {color:var(--accent);font-size:26px;font-weight:700;vertical-align:middle;}
-.product-item.yellow  .product-price .total {color:#D7B428;}
-.product-item.red     .product-price .total {color:#FF3D3D;}
-.product-item.green   .product-price .total {color:var(--accent);}
-.product-item.purple  .product-price .total {color:#89186d;}
+.checklist {display:flex;flex-direction:column;gap:var(--space-2);margin:var(--space-4) 0;}
+.check-item {position:relative;padding-left:30px;font-size:var(--fs-body);font-weight:600;color:var(--ink-900);line-height:1.5;}
+.check-item::before {content:'';position:absolute;left:0;top:2px;width:20px;height:20px;border-radius:5px;background:var(--accent);}
+.check-item::after {content:'';position:absolute;left:7px;top:6px;width:6px;height:10px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg);}
 
 /* ============================================================
  * Responsive
  * ============================================================ */
-@media screen and (max-width:1280px) {
-	.inner {padding:0 20px;}
-}
-
-@media screen and (max-width:768px) {
-	.page {word-break:break-all;}
-	.page-title {font-size:22px;}
-	.inner {padding:0 14px;}
-
-	.chapter {padding:var(--space-3);}
-	.chapter .chapter-link {font-size:16px;}
-
+@media screen and (max-width:680px) {
+	.page {padding:24px 18px 56px;}
+	.page-title {font-size:25px;}
+	.sec {margin-bottom:48px;}
 	.img-grid {gap:8px;}
-	.img-slide-list.mo-only {display:flex;}
-	.img-slide-list.pc-only {display:none;}
-	.img-slide-item {width:118px;}
-
-	.check-item {font-size:16px;}
-
-	.product-list {flex-direction:column;margin-bottom:40px;}
-	.product-item {display:flex;align-items:center;}
-	.product-item .product-img {margin:0;width:40%;}
-	.product-item .product-info {margin:0;padding:0 20px;border:0;}
-	.product-item .product-nm {font-size:18px;}
-	.product-item .product-price .origin {display:block;font-size:18px;}
-	.product-item .product-price .total {display:block;font-size:22px;}
+	:root {--fs-quote:52px;}
 }

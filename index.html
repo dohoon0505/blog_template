@@ -3,72 +3,52 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Blog Design System · 도랑플라워</title>
-	<meta name="description" content="블로그 본문 조각 디자인 시스템 — 토큰, 컴포넌트, 작성 규격">
-	<!-- 실제 컴포넌트 CSS(토큰 포함)를 그대로 불러와 데모를 렌더링 -->
+	<title>Blog Design System · Figma Blog_example</title>
+	<meta name="description" content="블로그 본문 조각 디자인 시스템 — Figma Blog_example 100% 반영. 토큰·컴포넌트·작성 규격.">
 	<link rel="stylesheet" href="./style.css">
 	<style>
-		/* ---- 문서(styleguide) 전용 chrome 스타일 ---- */
 		:root { --ds-nav-w: 248px; }
 		* { box-sizing: border-box; }
 		html { scroll-behavior: smooth; }
-		body {
-			margin: 0;
-			font-family: var(--font);
-			color: var(--ink-700);
-			background: var(--bg);
-			letter-spacing: -0.02em;
-		}
+		body { margin: 0; font-family: var(--font); color: var(--ink-700); background: var(--bg); letter-spacing: -0.02em; }
 		a { color: var(--accent); text-decoration: none; }
 
-		/* sidebar */
-		.ds-nav {
-			position: fixed; top: 0; left: 0; bottom: 0; width: var(--ds-nav-w);
-			border-right: 1px solid var(--line); background: #fff;
-			padding: 28px 22px; overflow-y: auto;
-		}
+		.ds-nav { position: fixed; inset: 0 auto 0 0; width: var(--ds-nav-w); border-right: 1px solid var(--line); background: #fff; padding: 28px 22px; overflow-y: auto; }
 		.ds-brand { font-size: 17px; font-weight: 800; color: var(--ink-900); line-height: 1.35; }
 		.ds-brand .dot { color: var(--accent); }
-		.ds-brand small { display:block; font-size: 12px; font-weight: 500; color: var(--ink-400); margin-top: 4px; letter-spacing: 0; }
+		.ds-brand small { display: block; font-size: 12px; font-weight: 500; color: var(--ink-400); margin-top: 4px; letter-spacing: 0; }
 		.ds-nav nav { margin-top: 26px; }
 		.ds-nav .grp { font-size: 11px; font-weight: 700; letter-spacing: .08em; color: var(--ink-400); text-transform: uppercase; margin: 22px 0 8px; }
 		.ds-nav a { display: block; padding: 7px 10px; border-radius: 7px; color: var(--ink-700); font-size: 14.5px; font-weight: 500; }
 		.ds-nav a:hover { background: var(--accent-soft); color: var(--accent-ink); }
 
-		/* main */
-		.ds-main { margin-left: var(--ds-nav-w); padding: 0; }
-		.ds-hero {
-			padding: 72px 56px 56px; border-bottom: 1px solid var(--line);
-			background: linear-gradient(180deg, var(--accent-soft), #fff);
-		}
-		.ds-hero .tag { display:inline-block; font-size: 12px; font-weight:700; letter-spacing:.06em; color:#fff; background:var(--accent); padding:5px 11px; border-radius:999px; text-transform:uppercase; }
+		.ds-main { margin-left: var(--ds-nav-w); }
+		.ds-hero { padding: 72px 56px 56px; border-bottom: 1px solid var(--line); background: linear-gradient(180deg, var(--accent-soft), #fff); }
+		.ds-hero .tag { display: inline-block; font-size: 12px; font-weight: 700; letter-spacing: .06em; color: #fff; background: var(--accent); padding: 5px 11px; border-radius: 999px; text-transform: uppercase; }
 		.ds-hero h1 { margin: 18px 0 12px; font-size: 40px; line-height: 1.2; font-weight: 800; color: var(--ink-900); }
 		.ds-hero p { margin: 0; font-size: 17px; color: var(--ink-500); max-width: 640px; line-height: 1.6; }
 		.ds-hero .links { margin-top: 24px; display: flex; gap: 10px; flex-wrap: wrap; }
-		.ds-btn { display:inline-flex; align-items:center; gap:7px; font-size:14px; font-weight:700; padding:11px 18px; border-radius:9px; }
+		.ds-btn { display: inline-flex; align-items: center; gap: 7px; font-size: 14px; font-weight: 700; padding: 11px 18px; border-radius: 9px; }
 		.ds-btn.primary { background: var(--accent); color: #fff; }
 		.ds-btn.primary:hover { background: var(--accent-ink); }
-		.ds-btn.ghost { background:#fff; color: var(--ink-700); border:1px solid var(--line); }
+		.ds-btn.ghost { background: #fff; color: var(--ink-700); border: 1px solid var(--line); }
 		.ds-btn.ghost:hover { border-color: var(--accent); color: var(--accent-ink); }
 
-		section.ds-sec { padding: 54px 56px; border-bottom: 1px solid var(--line); max-width: 1080px; }
+		section.ds-sec { padding: 54px 56px; border-bottom: 1px solid var(--line); max-width: 1000px; }
 		.ds-sec > h2 { font-size: 13px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); margin: 0 0 6px; }
 		.ds-sec > h3 { font-size: 28px; font-weight: 800; color: var(--ink-900); margin: 0 0 10px; }
 		.ds-sec > p.lead { font-size: 16px; color: var(--ink-500); margin: 0 0 28px; max-width: 660px; line-height: 1.65; }
 
 		.ds-block { margin-top: 40px; }
-		.ds-block h4 { font-size: 19px; font-weight: 700; color: var(--ink-900); margin: 0 0 4px; }
+		.ds-block h4 { font-size: 18px; font-weight: 700; color: var(--ink-900); margin: 0 0 4px; }
 		.ds-block .desc { font-size: 14.5px; color: var(--ink-500); margin: 0 0 16px; line-height: 1.6; }
 
-		/* demo + code */
 		.demo { border: 1px solid var(--line); border-radius: var(--radius-lg); padding: 28px; background: #fff; }
-		.demo.pad-sm { padding: 18px; }
+		.demo .page { padding: 0; max-width: none; margin: 0; }
 		pre { margin: 10px 0 0; background: #0f1116; color: #e6e6e6; border-radius: var(--radius); padding: 16px 18px; overflow-x: auto; font-size: 12.5px; line-height: 1.6; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
-		pre .t { color: #7ee2a8; } /* tag */
-		pre .a { color: #8ab4ff; } /* attr */
+		pre .t { color: #7ee2a8; } pre .a { color: #8ab4ff; }
 		code.inline { background: var(--accent-soft); color: var(--accent-ink); padding: 2px 6px; border-radius: 5px; font-family: ui-monospace, Menlo, Consolas, monospace; font-size: .9em; }
 
-		/* color tokens */
 		.swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 14px; }
 		.swatch { border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
 		.swatch .chip { height: 64px; }
@@ -76,15 +56,13 @@
 		.swatch .meta b { display: block; font-size: 13px; color: var(--ink-900); }
 		.swatch .meta span { font-size: 12px; color: var(--ink-400); font-family: ui-monospace, Menlo, Consolas, monospace; }
 
-		/* type scale */
 		.type-row { display: flex; align-items: baseline; gap: 20px; padding: 12px 0; border-bottom: 1px dashed var(--line); }
 		.type-row:last-child { border-bottom: 0; }
-		.type-row .label { width: 130px; flex-shrink: 0; font-size: 12px; color: var(--ink-400); font-family: ui-monospace, Menlo, Consolas, monospace; }
+		.type-row .label { width: 150px; flex-shrink: 0; font-size: 12px; color: var(--ink-400); font-family: ui-monospace, Menlo, Consolas, monospace; }
 		.type-row .sample { color: var(--ink-900); font-weight: 700; }
 
-		/* spacing scale */
 		.space-row { display: flex; align-items: center; gap: 16px; padding: 7px 0; }
-		.space-row .label { width: 130px; font-size: 12px; color: var(--ink-400); font-family: ui-monospace, Menlo, Consolas, monospace; }
+		.space-row .label { width: 150px; font-size: 12px; color: var(--ink-400); font-family: ui-monospace, Menlo, Consolas, monospace; }
 		.space-row .bar { height: 14px; background: var(--accent); border-radius: 3px; }
 
 		footer.ds-foot { padding: 36px 56px 60px; color: var(--ink-400); font-size: 13px; }
@@ -97,10 +75,9 @@
 	</style>
 </head>
 <body>
-	<!-- ============ SIDEBAR ============ -->
 	<aside class="ds-nav">
 		<div class="ds-brand">Blog<span class="dot">.</span>Design System
-			<small>도랑플라워 · 본문 조각 규격</small>
+			<small>Figma · Blog_example 100%</small>
 		</div>
 		<nav>
 			<div class="grp">Foundations</div>
@@ -109,25 +86,23 @@
 			<a href="#space">간격 (Spacing)</a>
 			<div class="grp">Components</div>
 			<a href="#c-header">포스트 헤더</a>
-			<a href="#c-toc">목차 (Chapter)</a>
-			<a href="#c-section">섹션 (Section)</a>
+			<a href="#c-bar">섹션 · 그린 바</a>
+			<a href="#c-quote">섹션 · 큰 따옴표</a>
 			<a href="#c-highlight">하이라이트</a>
 			<a href="#c-imggrid">이미지 그리드</a>
-			<a href="#c-imgslide">이미지 슬라이드</a>
+			<a href="#c-figure">큰 이미지</a>
 			<a href="#c-check">체크리스트</a>
-			<a href="#c-product">상품 카드</a>
 			<div class="grp">Guide</div>
 			<a href="#templates">템플릿 · 미리보기</a>
 			<a href="#method">작성 규격 (Method)</a>
 		</nav>
 	</aside>
 
-	<!-- ============ MAIN ============ -->
 	<main class="ds-main">
 		<div class="ds-hero">
 			<span class="tag">Design System</span>
 			<h1>블로그 본문 조각<br>디자인 시스템</h1>
-			<p>카페24/워드프레스형 호스트에 삽입하는 본문 조각(fragment)의 디자인 토큰·컴포넌트·작성 규격을 한곳에 모았습니다. 모든 데모는 실제 <code class="inline">style.css</code>로 렌더링됩니다.</p>
+			<p>Figma <strong>Blog_example</strong>를 100% 반영한 좁은 단일 칼럼 블로그 규격입니다. 디자인 토큰·컴포넌트·작성법을 한곳에 모았고, 모든 데모는 실제 <code class="inline">style.css</code>로 렌더링됩니다.</p>
 			<div class="links">
 				<a class="ds-btn primary" href="./preview.html">▶ 라이브 예시 보기</a>
 				<a class="ds-btn ghost" href="https://github.com/dohoon0505/blog_template" target="_blank" rel="noopener">GitHub 저장소</a>
@@ -135,239 +110,177 @@
 			</div>
 		</div>
 
-		<!-- ===== COLORS ===== -->
+		<!-- COLORS -->
 		<section class="ds-sec" id="colors">
 			<h2>Foundations</h2>
 			<h3>색상 (Color)</h3>
-			<p class="lead">브랜드 그린 <code class="inline">#109038</code>을 중심으로 한 토큰 팔레트입니다. 모든 색은 <code class="inline">style.css</code>의 <code class="inline">:root</code> CSS 변수로 정의됩니다.</p>
+			<p class="lead">브랜드 그린 <code class="inline">#109038</code>(Figma 샘플링) 중심. 모든 색은 <code class="inline">style.css</code>의 <code class="inline">:root</code> 변수로 관리됩니다.</p>
 			<div class="swatches">
 				<div class="swatch"><div class="chip" style="background:#109038"></div><div class="meta"><b>--accent</b><span>#109038</span></div></div>
 				<div class="swatch"><div class="chip" style="background:#0c7330"></div><div class="meta"><b>--accent-ink</b><span>#0c7330</span></div></div>
-				<div class="swatch"><div class="chip" style="background:#e7f4ec"></div><div class="meta"><b>--accent-soft</b><span>#e7f4ec</span></div></div>
+				<div class="swatch"><div class="chip" style="background:#e8f4ec"></div><div class="meta"><b>--accent-soft</b><span>#e8f4ec</span></div></div>
 				<div class="swatch"><div class="chip" style="background:#1a1a1a"></div><div class="meta"><b>--ink-900</b><span>#1a1a1a</span></div></div>
 				<div class="swatch"><div class="chip" style="background:#333333"></div><div class="meta"><b>--ink-700</b><span>#333333</span></div></div>
-				<div class="swatch"><div class="chip" style="background:#666666"></div><div class="meta"><b>--ink-500</b><span>#666666</span></div></div>
-				<div class="swatch"><div class="chip" style="background:#999999"></div><div class="meta"><b>--ink-400</b><span>#999999</span></div></div>
-				<div class="swatch"><div class="chip" style="background:#fafafa;border-bottom:1px solid #eee"></div><div class="meta"><b>--surface</b><span>#fafafa</span></div></div>
-				<div class="swatch"><div class="chip" style="background:#e5e5e5"></div><div class="meta"><b>--line</b><span>#e5e5e5</span></div></div>
+				<div class="swatch"><div class="chip" style="background:#555555"></div><div class="meta"><b>--ink-500</b><span>#555555</span></div></div>
+				<div class="swatch"><div class="chip" style="background:#b9bcc0"></div><div class="meta"><b>--meta</b><span>#b9bcc0</span></div></div>
+				<div class="swatch"><div class="chip" style="background:#e8e8e8"></div><div class="meta"><b>--placeholder</b><span>#e8e8e8</span></div></div>
+				<div class="swatch"><div class="chip" style="background:#ececec"></div><div class="meta"><b>--line</b><span>#ececec</span></div></div>
 			</div>
 		</section>
 
-		<!-- ===== TYPOGRAPHY ===== -->
+		<!-- TYPOGRAPHY -->
 		<section class="ds-sec" id="type">
 			<h2>Foundations</h2>
 			<h3>타이포그래피</h3>
-			<p class="lead">서체는 <code class="inline">Pretendard</code>. 본문 기준 18px / 줄간격 1.7, 한글 가독성을 위해 <code class="inline">word-break:keep-all</code>을 사용합니다.</p>
+			<p class="lead">서체 <code class="inline">Pretendard</code>. 본문 17px / 행간 1.8, 한글 <code class="inline">word-break:keep-all</code>. 좁은 칼럼(640px)에 맞춘 스케일입니다.</p>
 			<div class="demo">
-				<div class="type-row"><span class="label">--fs-title · 30/700</span><span class="sample" style="font-size:30px">제목 Page Title</span></div>
-				<div class="type-row"><span class="label">--fs-section · 24/700</span><span class="sample" style="font-size:24px">섹션 제목 Section</span></div>
-				<div class="type-row"><span class="label">--fs-subtitle · 21/600</span><span class="sample" style="font-size:21px;font-weight:600">소제목 Subtitle</span></div>
-				<div class="type-row"><span class="label">--fs-body · 18/400</span><span class="sample" style="font-size:18px;font-weight:400;color:var(--ink-700)">본문 Body text 가나다라마바사</span></div>
-				<div class="type-row"><span class="label">--fs-sm · 15/500</span><span class="sample" style="font-size:15px;font-weight:500;color:var(--ink-500)">보조 Small</span></div>
-				<div class="type-row"><span class="label">--fs-xs · 14/400</span><span class="sample" style="font-size:14px;font-weight:400;color:var(--ink-400)">메타 · 날짜 Meta</span></div>
+				<div class="type-row"><span class="label">--fs-title · 32/800</span><span class="sample" style="font-size:32px;letter-spacing:-.03em">제목 Page Title</span></div>
+				<div class="type-row"><span class="label">--fs-section · 20/700</span><span class="sample" style="font-size:20px">섹션 제목 Section</span></div>
+				<div class="type-row"><span class="label">--fs-subtitle · 17/500</span><span class="sample" style="font-size:17px;font-weight:500;color:var(--ink-700)">서브타이틀 Subtitle</span></div>
+				<div class="type-row"><span class="label">--fs-body · 17/400</span><span class="sample" style="font-size:17px;font-weight:400;color:var(--ink-700)">본문 Body 가나다라마바사</span></div>
+				<div class="type-row"><span class="label">--fs-meta · 13</span><span class="sample" style="font-size:13px;font-weight:400;color:var(--meta)">2024.10.20</span></div>
 			</div>
 		</section>
 
-		<!-- ===== SPACING ===== -->
+		<!-- SPACING -->
 		<section class="ds-sec" id="space">
 			<h2>Foundations</h2>
 			<h3>간격 (Spacing)</h3>
-			<p class="lead">8px 베이스의 간격 스케일. 컴포넌트 사이 여백은 주로 <code class="inline">--space-5 (40px)</code>를 사용합니다.</p>
+			<p class="lead">섹션 사이 <code class="inline">--space-6 (64px)</code>, 블록 사이 <code class="inline">--space-5 (44px)</code> 기준의 여유로운 리듬.</p>
 			<div class="demo">
 				<div class="space-row"><span class="label">--space-1 · 8px</span><span class="bar" style="width:8px"></span></div>
 				<div class="space-row"><span class="label">--space-2 · 14px</span><span class="bar" style="width:14px"></span></div>
 				<div class="space-row"><span class="label">--space-3 · 20px</span><span class="bar" style="width:20px"></span></div>
 				<div class="space-row"><span class="label">--space-4 · 30px</span><span class="bar" style="width:30px"></span></div>
-				<div class="space-row"><span class="label">--space-5 · 40px</span><span class="bar" style="width:40px"></span></div>
-				<div class="space-row"><span class="label">--space-6 · 60px</span><span class="bar" style="width:60px"></span></div>
+				<div class="space-row"><span class="label">--space-5 · 44px</span><span class="bar" style="width:44px"></span></div>
+				<div class="space-row"><span class="label">--space-6 · 64px</span><span class="bar" style="width:64px"></span></div>
 			</div>
 		</section>
 
-		<!-- ===== COMPONENT: POST HEADER ===== -->
+		<!-- POST HEADER -->
 		<section class="ds-sec" id="c-header">
 			<h2>Components</h2>
 			<h3>포스트 헤더</h3>
-			<p class="lead">제목 + 히어로 이미지 + 날짜(메타) + 리드 문단. 글의 도입부를 구성합니다.</p>
-			<div class="ds-block">
-				<div class="demo">
-					<div class="page" style="padding:0">
-						<h2 class="page-title">B2B 서비스도 바이럴 마케팅이 가능할까요?</h2>
-						<div class="post-hero" style="height:160px;display:flex;align-items:center;justify-content:center;color:#bbb;font-size:13px">hero image</div>
-						<div class="post-meta">2024.10.20 · 도랑플라워</div>
-						<p class="post-lead">처음 보내는 근조화환, 무엇부터 챙겨야 할지 막막하시죠? 핵심만 한 번에 정리했어요.</p>
-					</div>
+			<p class="lead">히어로 이미지 + 제목 + 리드 + 날짜(하단 divider). 글의 도입부.</p>
+			<div class="demo">
+				<div class="page">
+					<div class="post-hero" style="aspect-ratio:16/8"></div>
+					<h2 class="page-title">B2B 서비스도 바이럴 마케팅이 가능할까요?</h2>
+					<p class="post-lead">‘B2B’와 ‘바이럴 마케팅’이 한 문장에서 쓰이는 건 매우 드문 일입니다. 그럼에도 병원 CRM ‘리비짓’을 만드는 모션…</p>
+					<div class="post-meta">2024.10.20</div>
 				</div>
-<pre>&lt;<span class="t">h2</span> <span class="a">class</span>="page-title"&gt;제목&lt;/h2&gt;
-&lt;<span class="t">div</span> <span class="a">class</span>="post-hero"&gt;&lt;img src="…" class="fr-fic fr-dii"&gt;&lt;/div&gt;
-&lt;<span class="t">div</span> <span class="a">class</span>="post-meta"&gt;2024.10.20 · 도랑플라워&lt;/div&gt;
-&lt;<span class="t">p</span> <span class="a">class</span>="post-lead"&gt;리드 문단…&lt;/p&gt;</pre>
 			</div>
+<pre>&lt;<span class="t">div</span> <span class="a">class</span>="post-hero"&gt;&lt;img src="…"&gt;&lt;/div&gt;
+&lt;<span class="t">h2</span> <span class="a">class</span>="page-title"&gt;제목&lt;/h2&gt;
+&lt;<span class="t">p</span> <span class="a">class</span>="post-lead"&gt;리드…&lt;/p&gt;
+&lt;<span class="t">div</span> <span class="a">class</span>="post-meta"&gt;2024.10.20&lt;/div&gt;</pre>
 		</section>
 
-		<!-- ===== COMPONENT: TOC ===== -->
-		<section class="ds-sec" id="c-toc">
+		<!-- SECTION BAR -->
+		<section class="ds-sec" id="c-bar">
 			<h2>Components</h2>
-			<h3>목차 (Chapter)</h3>
-			<p class="lead">접고 펼 수 있는 목차. 토글은 호스트가 전역 로드한 <code class="inline">blog.js</code>가 담당합니다. 아래 데모의 여닫기 아이콘을 눌러보세요.</p>
-			<div class="ds-block">
-				<div class="demo">
-					<div class="page" style="padding:0">
-						<div class="chapter">
-							<div class="chapter-head"><h3 class="chapter-title">목차</h3><a class="chapter-toggle">목차 여닫기</a></div>
-							<div class="chapter-body">
-								<ul class="chapter-list">
-									<li class="chapter-item"><a class="chapter-link" href="#c-toc">첫 번째 소제목</a></li>
-									<li class="chapter-item"><a class="chapter-link" href="#c-toc">두 번째 소제목</a></li>
-									<li class="chapter-item"><a class="chapter-link" href="#c-toc">세 번째 소제목</a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
+			<h3>섹션 · 그린 바 헤더</h3>
+			<p class="lead">제목 좌측에 그린 바. 섹션에 <code class="inline">sec--bar</code>를 추가합니다.</p>
+			<div class="demo">
+				<div class="page">
+					<section class="sec sec--bar" style="margin:0">
+						<h3 class="sec-title">딱, 2분만 집중 해보세요</h3>
+						<p class="sec-text">격주 수요일, 마케팅과 세일즈 인사이트를 전해드리는 <strong class="hl">팀 리캐치</strong>입니다.</p>
+					</section>
 				</div>
-<pre>&lt;<span class="t">div</span> <span class="a">class</span>="chapter"&gt;
-  &lt;<span class="t">div</span> <span class="a">class</span>="chapter-head"&gt;&lt;h3 class="chapter-title"&gt;목차&lt;/h3&gt;&lt;a class="chapter-toggle"&gt;목차 여닫기&lt;/a&gt;&lt;/div&gt;
-  &lt;<span class="t">div</span> <span class="a">class</span>="chapter-body"&gt;&lt;ul class="chapter-list"&gt;
-    &lt;li class="chapter-item"&gt;&lt;a class="chapter-link" href="#sec1"&gt;소제목&lt;/a&gt;&lt;/li&gt;
-  &lt;/ul&gt;&lt;/div&gt;
-&lt;/div&gt;</pre>
 			</div>
+<pre>&lt;<span class="t">section</span> <span class="a">class</span>="sec sec--bar"&gt;
+  &lt;<span class="t">h3</span> <span class="a">class</span>="sec-title"&gt;소제목&lt;/h3&gt;
+  &lt;<span class="t">p</span> <span class="a">class</span>="sec-text"&gt;본문…&lt;/p&gt;
+&lt;/section&gt;</pre>
 		</section>
 
-		<!-- ===== COMPONENT: SECTION ===== -->
-		<section class="ds-sec" id="c-section">
+		<!-- SECTION QUOTE -->
+		<section class="ds-sec" id="c-quote">
 			<h2>Components</h2>
-			<h3>섹션 (Section)</h3>
-			<p class="lead">본문 단위. 두 가지 헤더 변형이 있습니다 — 기본형(따옴표 아이콘)과 강조형(<code class="inline">.sec--bar</code>, 그린 좌측 바).</p>
-			<div class="ds-block">
-				<h4>① 기본형 — 따옴표 아이콘</h4>
-				<div class="demo">
-					<div class="page" style="padding:0">
-						<section class="sec">
-							<div class="inner" style="padding:0">
-								<img class="sec-quotes-icon fr-fic fr-dii" src="https://dorangflower.cafe24.com/blog/sec_quotes.svg" alt="«">
-								<h3 class="sec-title">근조화환이 전하는 마음</h3>
-								<h4 class="sec-subtitle">직접 조문을 못 가도 괜찮아요</h4>
-								<p class="sec-text">정돈된 <strong>장례화환</strong> 한 개가 조용히 놓여 있으면, 유가족 입장에서는 오래 기억에 남아요.</p>
-							</div>
-						</section>
-					</div>
+			<h3>섹션 · 큰 따옴표 헤더</h3>
+			<p class="lead">제목 위 큰 따옴표 <code class="inline">❝</code> + 서브타이틀(하단 divider). 섹션에 <code class="inline">sec--quote</code>.</p>
+			<div class="demo">
+				<div class="page">
+					<section class="sec sec--quote" style="margin:0">
+						<div class="sec-quote-mark">“</div>
+						<h3 class="sec-title">B2B 마케팅의 주인공, ‘<span class="hl">구매자 페르소나</span>’ 정의하기</h3>
+						<p class="sec-subtitle">여러분의 고객은 누구인가요? 고객에 대해 더 많이 알수록 비즈니스는 성장합니다.</p>
+						<p class="sec-text">ICP가 기업 전체의 이상적인 고객을 구분하기 위한 프로필이라면, 구매자 페르소나는 개별 고객을 세부적으로 확대한 개념입니다.</p>
+					</section>
 				</div>
 			</div>
-			<div class="ds-block">
-				<h4>② 강조형 — <code class="inline">.sec--bar</code></h4>
-				<div class="desc">섹션 태그에 <code class="inline">sec--bar</code>를 추가하면 따옴표 아이콘 대신 그린 좌측 바가 표시됩니다.</div>
-				<div class="demo">
-					<div class="page" style="padding:0">
-						<section class="sec sec--bar">
-							<div class="inner" style="padding:0">
-								<img class="sec-quotes-icon fr-fic fr-dii" src="https://dorangflower.cafe24.com/blog/sec_quotes.svg" alt="«">
-								<h3 class="sec-title">딱, 2분만 집중 해보세요</h3>
-								<h4 class="sec-subtitle">마케팅과 세일즈 인사이트를 전해드려요</h4>
-								<p class="sec-text">핵심만 또렷하게 정리하면 훨씬 읽기 편해요.</p>
-							</div>
-						</section>
-					</div>
-				</div>
-<pre>&lt;<span class="t">section</span> <span class="a">class</span>="sec sec--bar" <span class="a">id</span>="sec1"&gt; … &lt;/section&gt;</pre>
-			</div>
+<pre>&lt;<span class="t">section</span> <span class="a">class</span>="sec sec--quote"&gt;
+  &lt;<span class="t">div</span> <span class="a">class</span>="sec-quote-mark"&gt;“&lt;/div&gt;
+  &lt;<span class="t">h3</span> <span class="a">class</span>="sec-title"&gt;소제목&lt;/h3&gt;
+  &lt;<span class="t">p</span> <span class="a">class</span>="sec-subtitle"&gt;서브타이틀…&lt;/p&gt;
+&lt;/section&gt;</pre>
 		</section>
 
-		<!-- ===== COMPONENT: HIGHLIGHT ===== -->
+		<!-- HIGHLIGHT -->
 		<section class="ds-sec" id="c-highlight">
 			<h2>Components</h2>
 			<h3>하이라이트</h3>
-			<p class="lead">본문 내 강조. 일반 강조는 <code class="inline">&lt;strong&gt;</code>(굵은 먹색), 브랜드·핵심어는 <code class="inline">.hl</code>(그린)을 사용합니다.</p>
+			<p class="lead">일반 강조 <code class="inline">&lt;strong&gt;</code>(굵은 먹색), 브랜드·핵심어 <code class="inline">.hl</code>(그린).</p>
 			<div class="demo">
-				<div class="page" style="padding:0">
-					<p class="sec-text">전화 주문은 <strong>고객센터</strong>가 가장 빠르고, 번호는 <strong class="hl">1668-1840</strong> 입니다. 마감은 <strong class="hl">18:30</strong>까지예요.</p>
+				<div class="page">
+					<p class="sec-text">병원 CRM ‘<strong class="hl">리비짓</strong>’을 만드는 모션랩스는 <strong>구매자 98%가 인바운드 영업</strong>으로 성장하고 있어요.</p>
 				</div>
 			</div>
-<pre>일반 강조 &lt;<span class="t">strong</span>&gt;…&lt;/strong&gt;  ·  핵심 강조 &lt;<span class="t">strong</span> <span class="a">class</span>="hl"&gt;…&lt;/strong&gt;</pre>
+<pre>일반 &lt;<span class="t">strong</span>&gt;…&lt;/strong&gt;  ·  핵심 &lt;<span class="t">strong</span> <span class="a">class</span>="hl"&gt;…&lt;/strong&gt;</pre>
 		</section>
 
-		<!-- ===== COMPONENT: IMAGE GRID ===== -->
+		<!-- IMAGE GRID -->
 		<section class="ds-sec" id="c-imggrid">
 			<h2>Components</h2>
 			<h3>이미지 그리드</h3>
-			<p class="lead">3분할 정적 그리드. 한눈에 비교하는 이미지 묶음에 적합합니다.</p>
+			<p class="lead">3분할 정적 그리드.</p>
 			<div class="demo">
-				<div class="page" style="padding:0">
-					<div class="img-grid">
-						<div class="img-grid-item" style="display:flex;align-items:center;justify-content:center;color:#bbb;font-size:12px">1</div>
-						<div class="img-grid-item" style="display:flex;align-items:center;justify-content:center;color:#bbb;font-size:12px">2</div>
-						<div class="img-grid-item" style="display:flex;align-items:center;justify-content:center;color:#bbb;font-size:12px">3</div>
+				<div class="page">
+					<div class="img-grid" style="margin:0">
+						<div class="img-grid-item"></div>
+						<div class="img-grid-item"></div>
+						<div class="img-grid-item"></div>
 					</div>
 				</div>
 			</div>
-<pre>&lt;<span class="t">div</span> <span class="a">class</span>="img-grid"&gt;
-  &lt;<span class="t">div</span> <span class="a">class</span>="img-grid-item"&gt;&lt;img src="…" class="fr-fic fr-dii"&gt;&lt;/div&gt; ×3
-&lt;/div&gt;</pre>
+<pre>&lt;<span class="t">div</span> <span class="a">class</span>="img-grid"&gt;&lt;div class="img-grid-item"&gt;&lt;img src="…"&gt;&lt;/div&gt; ×3&lt;/div&gt;</pre>
 		</section>
 
-		<!-- ===== COMPONENT: IMAGE SLIDE ===== -->
-		<section class="ds-sec" id="c-imgslide">
+		<!-- FIGURE -->
+		<section class="ds-sec" id="c-figure">
 			<h2>Components</h2>
-			<h3>이미지 슬라이드</h3>
-			<p class="lead">가로 스크롤 갤러리. PC용 <code class="inline">pc-only</code>, 모바일용 <code class="inline">mo-only</code> 두 리스트를 함께 두면 CSS가 화면폭으로 전환합니다.</p>
+			<h3>큰 이미지</h3>
+			<p class="lead">단일 와이드 이미지 <code class="inline">.sec-figure</code>.</p>
 			<div class="demo">
-				<div class="page" style="padding:0">
-					<div class="img-slide"><div class="inner">
-						<ul class="img-slide-list pc-only">
-							<li class="img-slide-item" style="height:130px;background:#eee;display:flex;align-items:center;justify-content:center;color:#bbb;font-size:12px">1</li>
-							<li class="img-slide-item" style="height:130px;background:#eee;display:flex;align-items:center;justify-content:center;color:#bbb;font-size:12px">2</li>
-							<li class="img-slide-item" style="height:130px;background:#eee;display:flex;align-items:center;justify-content:center;color:#bbb;font-size:12px">3</li>
-							<li class="img-slide-item" style="height:130px;background:#eee;display:flex;align-items:center;justify-content:center;color:#bbb;font-size:12px">4</li>
-						</ul>
-					</div></div>
+				<div class="page">
+					<div class="sec-figure" style="margin:0"></div>
 				</div>
 			</div>
+<pre>&lt;<span class="t">div</span> <span class="a">class</span>="sec-figure"&gt;&lt;img src="…"&gt;&lt;/div&gt;</pre>
 		</section>
 
-		<!-- ===== COMPONENT: CHECKLIST ===== -->
+		<!-- CHECKLIST -->
 		<section class="ds-sec" id="c-check">
 			<h2>Components</h2>
 			<h3>체크리스트</h3>
-			<p class="lead">그린 체크 박스 항목. 주문 전 확인사항이나 핵심 요약에 사용합니다.</p>
+			<p class="lead">그린 체크 항목.</p>
 			<div class="demo">
-				<div class="page" style="padding:0">
-					<div class="checklist">
-						<div class="check-item">장례식장명 + 빈소 호실 정확히 확인</div>
-						<div class="check-item">고인명 또는 상주명 표기</div>
-						<div class="check-item">리본 문구 (윗줄 경조사어 + 아랫줄 보내는 분)</div>
+				<div class="page">
+					<div class="checklist" style="margin:0">
+						<div class="check-item">구매자의 여정을 파악하는 질문</div>
+						<div class="check-item">구매 결정에 영향을 주는 사람은 누구인가</div>
 					</div>
 				</div>
 			</div>
-<pre>&lt;<span class="t">div</span> <span class="a">class</span>="checklist"&gt;
-  &lt;<span class="t">div</span> <span class="a">class</span>="check-item"&gt;확인 항목&lt;/div&gt;
-&lt;/div&gt;</pre>
+<pre>&lt;<span class="t">div</span> <span class="a">class</span>="checklist"&gt;&lt;div class="check-item"&gt;항목&lt;/div&gt;&lt;/div&gt;</pre>
 		</section>
 
-		<!-- ===== COMPONENT: PRODUCT ===== -->
-		<section class="ds-sec" id="c-product">
-			<h2>Components</h2>
-			<h3>상품 카드</h3>
-			<p class="lead">정가/판매가를 표시하는 상품 진열. 색상 변형: <code class="inline">yellow · red · green · purple</code>.</p>
-			<div class="demo">
-				<div class="page" style="padding:0">
-					<div class="product-list" style="margin-bottom:0">
-						<a class="product-item green" href="#c-product">
-							<div class="product-img" style="height:120px;background:#eee;border-radius:8px"></div>
-							<div class="product-info"><div class="product-nm">3단 근조화환(기본)</div><div class="product-price"><del class="origin">99,000원</del> <span class="total">59,000원</span></div></div>
-						</a>
-						<a class="product-item purple" href="#c-product">
-							<div class="product-img" style="height:120px;background:#eee;border-radius:8px"></div>
-							<div class="product-info"><div class="product-nm">3단 근조화환(고급)</div><div class="product-price"><del class="origin">99,000원</del> <span class="total">79,000원</span></div></div>
-						</a>
-					</div>
-				</div>
-			</div>
-		</section>
-
-		<!-- ===== TEMPLATES ===== -->
+		<!-- TEMPLATES -->
 		<section class="ds-sec" id="templates">
 			<h2>Guide</h2>
 			<h3>템플릿 · 미리보기</h3>
-			<p class="lead">실제 글은 본문 조각(fragment)으로 작성합니다. 아래 자료로 시작하세요.</p>
+			<p class="lead">실제 글은 본문 조각(fragment)으로 작성합니다.</p>
 			<div class="links" style="display:flex;gap:10px;flex-wrap:wrap">
 				<a class="ds-btn primary" href="./preview.html">▶ 예시 글 라이브 미리보기</a>
 				<a class="ds-btn ghost" href="./template.html" target="_blank">빈 템플릿 (template.html)</a>
@@ -375,19 +288,17 @@
 			</div>
 		</section>
 
-		<!-- ===== METHOD ===== -->
+		<!-- METHOD -->
 		<section class="ds-sec" id="method">
 			<h2>Guide</h2>
 			<h3>작성 규격 (Method)</h3>
 			<p class="lead">완성본은 표준 HTML 문서가 아니라 호스트 페이지 안에 삽입되는 <strong>본문 조각</strong>입니다.</p>
 			<div class="ds-block">
-				<h4>핵심 규칙</h4>
-				<div class="desc">전체 규격은 저장소의 <code class="inline">CLAUDE.md</code>에 있습니다.</div>
 				<ul style="margin:0;padding-left:18px;color:var(--ink-700);font-size:15px;line-height:1.9">
 					<li>출력은 <code class="inline">&lt;style&gt;@import…&lt;/style&gt;</code> + <code class="inline">&lt;main class="page"&gt;</code>로 시작해 <code class="inline">&lt;/main&gt;</code>으로 끝낸다.</li>
-					<li><code class="inline">&lt;!DOCTYPE&gt;·&lt;html&gt;·&lt;head&gt;·&lt;body&gt;·&lt;script&gt;</code> 금지 — JS는 호스트 전역 <code class="inline">blog.js</code>가 담당.</li>
-					<li>CSS만 조각 안에서 <code class="inline">@import</code>로 직접 로드.</li>
-					<li>목차 항목 수 = 섹션 수, <code class="inline">href="#secN"</code> ↔ <code class="inline">id="secN"</code> 1:1 일치.</li>
+					<li><code class="inline">&lt;!DOCTYPE&gt;·&lt;html&gt;·&lt;head&gt;·&lt;body&gt;·&lt;script&gt;</code> 금지. CSS만 <code class="inline">@import</code>로 로드.</li>
+					<li>좁은 단일 칼럼(640px). 섹션 헤더는 <code class="inline">.sec--bar</code> 또는 <code class="inline">.sec--quote</code>.</li>
+					<li>전체 규격은 저장소 <code class="inline">CLAUDE.md</code> 참고.</li>
 				</ul>
 <pre>&lt;<span class="t">style</span> <span class="a">type</span>="text/css"&gt;@import url("./style.css");&lt;/style&gt;
 &lt;<span class="t">main</span> <span class="a">class</span>="page"&gt;
@@ -397,11 +308,8 @@
 		</section>
 
 		<footer class="ds-foot">
-			Blog Design System · 도랑플라워 · accent <code class="inline">#109038</code> · 토큰은 <code class="inline">style.css</code> <code class="inline">:root</code>에서 관리됩니다.
+			Blog Design System · Figma Blog_example 100% · accent <code class="inline">#109038</code> · 토큰은 <code class="inline">style.css</code> <code class="inline">:root</code>에서 관리.
 		</footer>
 	</main>
-
-	<!-- 호스트 전역 스크립트: 목차 토글 데모 작동용 -->
-	<script src="./blog.js"></script>
 </body>
 </html>
