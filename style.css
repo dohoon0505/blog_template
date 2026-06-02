@@ -1,0 +1,97 @@
+@charset 'utf-8';
+
+/* ====================== */
+/* UI Reset */
+/* ====================== */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/pretendard/1.3.9/static/pretendard-subset.min.css');
+.page {font-family: 'Pretendard', Pretendard, sans-serif;font-size:18px;color:#333;font-weight:400;line-height:1.7;word-break:keep-all;letter-spacing:-0.36px;}
+.page * {margin:0;padding:0;font:inherit;}
+.page *,
+.page *::before,
+.page *::after {box-sizing:border-box;}
+.page a {text-decoration:none;cursor:pointer;}
+.page img {max-width:100%;}
+.page button {border:none;cursor:pointer;background-color:transparent;}
+.page sup {line-height:1;vertical-align:0px;}
+.page ul,
+.page ol,
+.page li {list-style:none;}
+.page input,
+.page textarea,
+.page button,
+.page select,
+.page a {-webkit-tap-highlight-color: transparent;}
+
+/* ====================== */
+/* page */
+/* ====================== */
+body {margin:0;}
+.blind {position: absolute;width: 1px;height: 1px;clip: rect(0 0 0 0);overflow: hidden;}
+.page {max-width:1280px;margin:0 auto;padding:20px 0 0;}
+.page-title {font-size:30px;color:#222;font-weight:700;margin-bottom:10px;line-height:1.6;margin-bottom:40px;}
+/* .inner {padding:0 14px;} */
+
+.chapter {border-radius: 8px;border: 1px solid #DDD;background: #FAFAFA;margin-bottom:40px;padding:30px;}
+.chapter .chapter-head {border-bottom:1px solid rgb(153, 153, 153,.3);padding-bottom:20px;display:flex;align-items:center;}
+.chapter .chapter-title {font-size:24px;font-weight:700;flex:1;}
+.chapter .chapter-toggle {font-size:0;text-indent:-9999px;overflow:hidden;white-space:nowrap;width:24px;height:24px;background:url('https://dorangflower.cafe24.com/blog/chapter_toggle.svg') no-repeat center/contain;}
+.chapter .chapter-body {overflow: hidden;transition: max-height .4s ease;}
+.chapter .chapter-body.hide {max-height:0;}
+.chapter .chapter-list {padding: 40px 0 15px 15px !important;}
+.chapter .chapter-item {margin-bottom:14px;position:relative;}
+.chapter .chapter-item:last-child {margin-bottom:0;}
+.chapter .chapter-link {color:#444;font-size:20px;font-weight:500;position:relative;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding-right:36px;}
+.chapter .chapter-link:after {content:'';display:block;width:18px;height:14px;background:url('https://dorangflower.cafe24.com/blog/chapter_arrow.svg') no-repeat center/contain;position:absolute;top:50%;transform:translateY(-50%);right:0;}
+.chapter .chapter-link:hover {text-decoration:underline;}
+
+.sec {margin-bottom:40px;}
+.sec:last-child {margin-bottom:0;}
+.sec-quotes-icon {margin-bottom:16px;width:24px;}
+.sec-title {font-size:30px;color:#222;font-weight:700;margin-bottom:10px;line-height:1.6;}
+.sec-subtitle {border-bottom:2px solid #222;padding-bottom:16px;margin-bottom:16px;line-height:1.6;font-size:21px;font-weight:600;}
+.sec-text {font-size:18px;}
+.sec-text strong {font-weight:700;}
+
+.img-slide {width:100%;margin-top:40px;}
+.img-slide .inner {overflow-x: auto;-ms-overflow-style: none;scrollbar-width: none;}
+.img-slide .inner::-webkit-scrollbar {display: none;}
+.img-slide-list {display:flex;gap:10px;min-width:max-content;}
+.img-slide-list.mo-only {display:none;}
+.img-slide-item {border-radius:5px;overflow:hidden;width:205px;flex-shrink:0;}
+.img-slide-item img {display:block;}
+
+.product-list {display:flex;gap:10px;margin-bottom:90px;}
+.product-item .product-img {margin-bottom:20px;}
+.product-item .product-info {margin:20px 5px 0;padding:10px 0 0;border-top:3px solid #D9D9D9;}
+.product-item .product-nm {color:#666;font-size:24px;font-weight:700;margin-bottom:3px;}
+.product-item .product-price .origin {text-decoration:line-through;color:#BEBEBE;font-weight:300;font-size:20px;margin-right:6px;vertical-align:middle;}
+.product-item .product-price .total {color:#89186d;font-size:26px;font-weight:700;vertical-align:middle;}
+.product-item.yellow .product-price .total {color:#D7B428;}
+.product-item.red .product-price .total {color:#FF3D3D;}
+.product-item.green .product-price .total {color:#2EC92E;}
+.product-item.purple .product-price .total {color:#89186d;}
+
+@media screen and (max-width: 1280px) {
+    .inner {padding:0 20px;}
+}
+
+@media screen and (max-width: 768px) {
+    .page {word-break: break-all;}
+    .page-title {font-size:22px;}
+    .inner {padding:0 14px;}
+    
+    .chapter {padding:20px;}
+    .chapter .chapter-link {font-size:16px;}
+
+    .img-slide-list.mo-only {display:flex;}
+    .img-slide-list.pc-only {display:none;}
+    .img-slide-item {width:118px;}
+
+    .product-list {flex-direction:column;margin-bottom:40px;}
+    .product-item {display:flex;align-items:center;}
+    .product-item .product-img {margin:0;width:40%;}
+    .product-item .product-info {margin:0;padding:0 20px;border:0;}
+    .product-item .product-nm {font-size:18px;}
+    .product-item .product-price .origin {display:block;font-size:18px;}
+    .product-item .product-price .total {display:block;font-size:22px;}
+}

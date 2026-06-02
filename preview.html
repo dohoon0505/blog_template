@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<!-- ============================================================
+     preview.html  —  로컬 미리보기 전용 (배포하지 않음)
+     ------------------------------------------------------------
+     호스트 페이지(워드프레스/카페24 테마)를 흉내 냅니다:
+       1) 본문 조각(완성본)을 불러와 페이지에 삽입하고
+       2) 전역 blog.js 를 로드 → 목차 여닫기가 작동하는지 확인.
+
+     ⚠ fetch 는 file:// 에서 막히므로 로컬 서버로 여세요:
+         python -m http.server 8000     (또는  npx serve)
+       그리고  http://localhost:8000/preview.html  접속.
+       다른 조각 보기:  preview.html?post=내파일.html
+     ============================================================ -->
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>블로그 본문 미리보기</title>
+</head>
+<body>
+	<div id="post"></div>
+	<script>
+		var file = new URLSearchParams(location.search).get('post') || 'example.html';
+		fetch(file)
+			.then(function (r) { return r.text(); })
+			.then(function (html) {
+				document.getElementById('post').innerHTML = html; // <style>@import 포함 그대로 적용
+				var s = document.createElement('script');         // 호스트의 전역 blog.js 로드 흉내
+				s.src = 'blog.js';
+				document.body.appendChild(s);
+			})
+			.catch(function (e) {
+				document.getElementById('post').textContent =
+					'불러오기 실패: ' + e + ' — 로컬 서버로 여세요 (python -m http.server).';
+			});
+	</script>
+</body>
+</html>

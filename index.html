@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<!-- ============================================================
+     index.html  —  GitHub Pages 랜딩 (호스트 환경 재현 데모)
+     ------------------------------------------------------------
+     호스트 페이지(워드프레스/카페24 테마)를 흉내 내어:
+       1) 본문 조각(완성본)을 불러와 삽입하고
+       2) 전역 blog.js 를 로드 → 목차 여닫기가 작동.
+     기본은 example.html, ?post=내파일.html 로 다른 조각도 확인.
+     ============================================================ -->
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>블로그 완성본 미리보기</title>
+</head>
+<body>
+	<div id="post"></div>
+	<script>
+		var file = new URLSearchParams(location.search).get('post') || 'example.html';
+		fetch(file)
+			.then(function (r) { if (!r.ok) throw new Error(r.status); return r.text(); })
+			.then(function (html) {
+				document.getElementById('post').innerHTML = html; // <style>@import 포함 그대로 적용
+				var s = document.createElement('script');         // 호스트의 전역 blog.js 로드 흉내
+				s.src = 'blog.js';
+				document.body.appendChild(s);
+			})
+			.catch(function (e) {
+				document.getElementById('post').textContent = '불러오기 실패: ' + e;
+			});
+	</script>
+</body>
+</html>
