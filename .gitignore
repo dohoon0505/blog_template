@@ -1,3 +1,5 @@
 # 개발 부산물
 .playwright-mcp/
-verify-render.png
+*.png
+*.jpg
+.figma-design.png

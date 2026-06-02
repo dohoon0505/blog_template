@@ -62,6 +62,25 @@
 </main>
 ```
 
+## 디자인 토큰 (style.css `:root`)
+- 색상은 모두 CSS 변수로 관리한다. 임의 hex 대신 토큰을 쓴다.
+- 브랜드 액센트: `--accent: #109038` (Figma Blog_example에서 샘플링).
+- 먹색 단계 `--ink-900/700/500/400`, 면/선 `--surface #fafafa` · `--line #e5e5e5`.
+- 타이포 `--fs-title 30 / --fs-section 24 / --fs-subtitle 21 / --fs-body 18`.
+- 간격 스케일 `--space-1…6 = 8/14/20/30/40/60`.
+
+## 컴포넌트 카탈로그 (신규 포함)
+- **포스트 헤더**: `.page-title` + `.post-hero`(히어로 이미지) + `.post-meta`(날짜) + `.post-lead`(리드 문단).
+- **목차**: `.chapter`(여닫기) — 제목 좌측에 그린 바.
+- **섹션**: 기본형(따옴표 아이콘) / 강조형 `.sec--bar`(그린 좌측 바). 둘 다 `.sec-title`·`.sec-subtitle`·`.sec-text` 사용.
+- **하이라이트**: 일반 `<strong>`(굵은 먹색), 핵심어 `<strong class="hl">`(그린).
+- **이미지 그리드**: `.img-grid > .img-grid-item`(3분할 정적).
+- **이미지 슬라이드**: `.img-slide` + `pc-only`/`mo-only`(가로 스크롤).
+- **체크리스트**: `.checklist > .check-item`(그린 체크).
+- **상품 카드**: `.product-item` 색상 변형 `yellow/red/green/purple`.
+
+> 컴포넌트의 실제 렌더링·코드 스니펫은 디자인 시스템 사이트(`index.html`, GitHub Pages 루트)에서 확인한다.
+
 ## 작성 규칙(콘텐츠)
 - 본문 단락 강조는 `<strong>…</strong>`, 단락 사이는 `<br><br>` 로 띄운다.
 - 모든 `<img>`는 `class="fr-fic fr-dii"`를 유지한다.
