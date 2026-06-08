@@ -130,28 +130,32 @@ body {margin:0;}
  *  · 인라인 카드 .promo  (문서 중앙 등 본문 사이)
  *  · 하단 배너 .promo--banner (문서 최하단 강한 CTA)
  * ============================================================ */
-.promo {display:flex;gap:18px;align-items:center;border:1px solid var(--line);border-radius:var(--radius-lg);background:#fff;padding:18px;margin:var(--space-6) 0;transition:border-color .15s ease, box-shadow .2s ease, transform .15s ease;}
-.promo:hover {border-color:var(--accent);box-shadow:0 10px 26px rgba(16,144,56,.10);transform:translateY(-2px);}
-.promo-media {flex:0 0 96px;width:96px;height:96px;border-radius:var(--radius);background:var(--placeholder);overflow:hidden;}
+.promo {position:relative;display:flex;gap:16px;align-items:center;border:1px solid var(--line);border-radius:14px;background:#fff;padding:16px;margin:var(--space-6) 0;box-shadow:0 1px 2px rgba(0,0,0,.03);transition:border-color .15s ease, box-shadow .25s ease, transform .15s ease;}
+.promo:hover {border-color:var(--accent);box-shadow:0 16px 34px rgba(16,144,56,.13);transform:translateY(-2px);}
+.promo-media {position:relative;flex:0 0 120px;width:120px;height:120px;border-radius:11px;overflow:hidden;background:var(--placeholder);}
 .promo-media img {width:100%;height:100%;object-fit:cover;}
+.promo-badge {position:absolute;top:8px;left:8px;display:inline-flex;align-items:baseline;gap:2px;background:var(--accent);color:#fff;font-weight:800;font-size:14px;line-height:1;padding:5px 8px;border-radius:8px;box-shadow:0 4px 12px rgba(16,144,56,.35);}
+.promo-badge small {font-size:9px;font-weight:700;letter-spacing:.04em;}
 .promo-info {flex:1;min-width:0;}
-.promo-eyebrow {display:inline-block;font-size:11px;font-weight:700;letter-spacing:.04em;color:var(--accent);background:var(--accent-soft);padding:3px 9px;border-radius:999px;margin-bottom:9px;}
-.promo-title {font-size:17px;font-weight:700;color:var(--ink-900);line-height:1.4;margin-bottom:5px;}
-.promo-desc {font-size:14px;color:var(--ink-500);line-height:1.55;margin-bottom:11px;}
-.promo-price {font-size:14px;margin-bottom:12px;}
-.promo-price .origin {text-decoration:line-through;color:var(--meta);margin-right:6px;}
-.promo-price .now {font-size:18px;font-weight:800;color:var(--accent);}
-.promo-cta {display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:700;color:#fff;background:var(--accent);padding:9px 16px;border-radius:8px;transition:background .15s ease;}
-.promo:hover .promo-cta {background:var(--accent-ink);}
+.promo-eyebrow {display:inline-block;font-size:11px;font-weight:700;letter-spacing:.03em;color:var(--accent);background:var(--accent-soft);padding:3px 9px;border-radius:999px;margin-bottom:8px;}
+.promo-title {font-size:17px;font-weight:700;color:var(--ink-900);line-height:1.35;margin-bottom:4px;}
+.promo-desc {font-size:13.5px;color:var(--ink-500);line-height:1.5;margin-bottom:12px;}
+.promo-buy {display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;}
+.promo-price {display:flex;align-items:baseline;gap:7px;}
+.promo-price .now {font-size:21px;font-weight:800;color:var(--ink-900);letter-spacing:-.02em;}
+.promo-price .origin {font-size:13px;color:var(--meta);text-decoration:line-through;}
+.promo-cta {display:inline-flex;align-items:center;gap:6px;font-size:13.5px;font-weight:700;color:#fff;background:var(--accent);padding:10px 16px;border-radius:9px;white-space:nowrap;transition:background .15s ease, gap .15s ease;}
+.promo:hover .promo-cta {background:var(--accent-ink);gap:10px;}
 
-/* 하단 배너 변형 */
-.promo--banner {flex-direction:column;text-align:center;gap:10px;padding:38px 28px;background:var(--accent);border-color:var(--accent);}
-.promo--banner:hover {box-shadow:0 14px 32px rgba(16,144,56,.24);}
-.promo--banner .promo-eyebrow {color:#fff;background:rgba(255,255,255,.18);}
-.promo--banner .promo-title {color:#fff;font-size:22px;line-height:1.35;}
-.promo--banner .promo-desc {color:rgba(255,255,255,.88);font-size:15px;margin-bottom:6px;}
-.promo--banner .promo-cta {background:#fff;color:var(--accent-ink);font-size:15px;padding:13px 24px;}
-.promo--banner:hover .promo-cta {background:#fff;}
+/* 하단 배너 변형 : 그라데이션 + 우측 CTA */
+.promo--banner {gap:18px;justify-content:space-between;padding:26px 28px;background:linear-gradient(135deg, var(--accent), var(--accent-ink));border-color:transparent;box-shadow:0 12px 28px rgba(16,144,56,.20);}
+.promo--banner:hover {transform:translateY(-2px);box-shadow:0 20px 42px rgba(16,144,56,.28);}
+.promo--banner .promo-info {color:#fff;}
+.promo--banner .promo-eyebrow {color:#fff;background:rgba(255,255,255,.2);}
+.promo--banner .promo-title {color:#fff;font-size:20px;line-height:1.35;margin-bottom:4px;}
+.promo--banner .promo-desc {color:rgba(255,255,255,.9);font-size:14px;margin-bottom:0;}
+.promo--banner .promo-cta {flex:0 0 auto;background:#fff;color:var(--accent-ink);font-size:15px;padding:13px 22px;}
+.promo--banner:hover .promo-cta {background:#fff;gap:10px;}
 
 /* ============================================================
  * Responsive
@@ -163,8 +167,12 @@ body {margin:0;}
 	.img-grid {gap:8px;}
 	:root {--fs-quote:52px;}
 
-	.promo {gap:14px;padding:14px;}
-	.promo-media {flex-basis:72px;width:72px;height:72px;}
-	.promo--banner {padding:30px 20px;}
-	.promo--banner .promo-title {font-size:19px;}
+	.promo {gap:13px;padding:13px;}
+	.promo-media {flex-basis:96px;width:96px;height:96px;}
+	.promo-title {font-size:16px;}
+	.promo-buy {gap:10px;}
+	.promo-price .now {font-size:19px;}
+	.promo--banner {flex-direction:column;text-align:center;padding:26px 20px;}
+	.promo--banner .promo-cta {width:100%;justify-content:center;}
+	.promo--banner .promo-title {font-size:18px;}
 }

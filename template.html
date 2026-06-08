@@ -49,19 +49,24 @@
 
 		<!-- ★ 상품 광고 ① : 문서 중앙 (상품 카드 · Product/Offer 구조화 데이터) -->
 		<a class="promo" href="{{상품 링크}}" itemscope itemtype="https://schema.org/Product">
-			<div class="promo-media"><img src="{{상품 이미지}}" alt="{{상품명 상품 이미지}}" itemprop="image" loading="lazy" decoding="async"></div>
+			<div class="promo-media">
+				<span class="promo-badge">{{40}}%<small>OFF</small></span>
+				<img src="{{상품 이미지}}" alt="{{상품명 상품 이미지}}" itemprop="image" loading="lazy" decoding="async">
+			</div>
 			<div class="promo-info">
 				<span class="promo-eyebrow">{{베스트 / 추천}}</span>
 				<div class="promo-title" itemprop="name">{{상품명}}</div>
 				<p class="promo-desc" itemprop="description">{{한 줄 설득 카피}}</p>
-				<div class="promo-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
-					<del class="origin">{{정가}}</del>
-					<span class="now" itemprop="price" content="{{59000}}">{{59,000원}}</span>
+				<div class="promo-buy" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+					<div class="promo-price">
+						<span class="now" itemprop="price" content="{{59000}}">{{59,000원}}</span>
+						<del class="origin">{{정가}}</del>
+					</div>
 					<meta itemprop="priceCurrency" content="KRW">
 					<link itemprop="availability" href="https://schema.org/InStock">
 					<link itemprop="url" href="{{상품 링크}}">
+					<span class="promo-cta">{{주문하러 가기}} →</span>
 				</div>
-				<span class="promo-cta">{{주문하러 가기}} →</span>
 			</div>
 		</a>
 
@@ -89,8 +94,8 @@
 				<span class="promo-eyebrow">{{당일배송 / 한정 혜택}}</span>
 				<div class="promo-title">{{지금 주문하면 오늘 도착}}</div>
 				<p class="promo-desc">{{배송·혜택 한 줄 카피}}</p>
-				<span class="promo-cta">{{상품 주문하기}} →</span>
 			</div>
+			<span class="promo-cta">{{상품 주문하기}} →</span>
 		</a>
 
 	</article>
