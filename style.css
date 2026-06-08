@@ -2,7 +2,7 @@
 @import url('https://cdnjs.cloudflare.com/ajax/libs/pretendard/1.3.9/static/pretendard-subset.min.css');
 
 /* ============================================================
- * DESIGN TOKENS  —  Figma: Blog_example (100% 반영)
+ * DESIGN TOKENS · Figma: Blog_example (100% 반영)
  * 좁은 단일 칼럼 블로그. accent green #109038.
  * ============================================================ */
 :root {
@@ -48,7 +48,7 @@
 	--space-5: 44px;
 	--space-6: 64px;
 
-	/* Layout — Figma 측정 칼럼 폭 */
+	/* Layout · Figma 측정 칼럼 폭 */
 	--maxw: 640px;
 }
 
@@ -67,7 +67,7 @@
 .page li {list-style:none;}
 
 /* ============================================================
- * Page layout — 좁은 단일 칼럼
+ * Page layout · 좁은 단일 칼럼
  * ============================================================ */
 body {margin:0;}
 .page {max-width:var(--maxw);margin:0 auto;padding:40px 20px 80px;}

@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Blog Design System · Figma Blog_example</title>
-	<meta name="description" content="블로그 본문 조각 디자인 시스템 — Figma Blog_example 100% 반영. 토큰·컴포넌트·작성 규격.">
+	<meta name="description" content="블로그 본문 조각 디자인 시스템 · Figma Blog_example 100% 반영. 토큰·컴포넌트·작성 규격.">
 	<link rel="stylesheet" href="./style.css">
 	<style>
 		:root { --ds-nav-w: 248px; }
@@ -65,6 +65,15 @@
 		.space-row .label { width: 150px; font-size: 12px; color: var(--ink-400); font-family: ui-monospace, Menlo, Consolas, monospace; }
 		.space-row .bar { height: 14px; background: var(--accent); border-radius: 3px; }
 
+		.ban { border: 1px solid var(--line); border-radius: 10px; overflow: hidden; margin-bottom: 12px; }
+		.ban-row { display: flex; gap: 10px; align-items: flex-start; padding: 11px 14px; font-size: 14.5px; line-height: 1.55; color: var(--ink-700); }
+		.ban-row.bad { background: #fdecec; }
+		.ban-row.good { background: var(--accent-soft); border-top: 1px solid #fff; }
+		.ban-row .mk { flex: 0 0 auto; font-weight: 800; }
+		.ban-row.bad .mk { color: #d83a3a; }
+		.ban-row.good .mk { color: var(--accent); }
+		.ban-row .em { color: #d83a3a; font-weight: 800; padding: 0 2px; }
+
 		footer.ds-foot { padding: 36px 56px 60px; color: var(--ink-400); font-size: 13px; }
 
 		@media (max-width: 860px) {
@@ -97,6 +106,7 @@
 			<a href="#templates">템플릿 · 미리보기</a>
 			<a href="#method">작성 규격 (Method)</a>
 			<a href="#seo">SEO 검색최적화</a>
+			<a href="#dont">금지사항</a>
 		</nav>
 	</aside>
 
@@ -284,7 +294,7 @@
 			<h3>상품 광고</h3>
 			<p class="lead">자연스럽게 구매로 이어지는 광고 슬롯. 문서 <strong>중앙</strong>엔 인라인 카드 <code class="inline">.promo</code>, <strong>최하단</strong>엔 배너 <code class="inline">.promo--banner</code>를 배치합니다.</p>
 			<div class="ds-block">
-				<h4>① 인라인 카드 — <code class="inline">.promo</code> (문서 중앙)</h4>
+				<h4>① 인라인 카드 · <code class="inline">.promo</code> (문서 중앙)</h4>
 				<div class="demo">
 					<div class="page">
 						<a class="promo" href="#c-promo" style="margin:0">
@@ -321,7 +331,7 @@
 &lt;/a&gt;</pre>
 			</div>
 			<div class="ds-block">
-				<h4>② 배너 CTA — <code class="inline">.promo--banner</code> (문서 최하단)</h4>
+				<h4>② 배너 CTA · <code class="inline">.promo--banner</code> (문서 최하단)</h4>
 				<div class="demo">
 					<div class="page">
 						<a class="promo promo--banner" href="#c-promo" style="margin:0">
@@ -403,10 +413,10 @@
 			</div>
 
 			<div class="ds-block">
-				<h4>③ 호스트 <code class="inline">&lt;head&gt;</code> — JSON-LD &amp; 메타 (권장)</h4>
+				<h4>③ 호스트 <code class="inline">&lt;head&gt;</code> · JSON-LD &amp; 메타 (권장)</h4>
 				<div class="desc">호스트(테마)에서 <code class="inline">&lt;head&gt;</code>를 편집할 수 있으면, 구글이 가장 선호하는 <strong>JSON-LD</strong>와 메타를 넣습니다. 제목 30~60자, 설명 120~160자, canonical·OG 필수.</div>
 <pre>&lt;<span class="t">title</span>&gt;근조화환 보내기 전 체크리스트 | 도랑플라워&lt;/title&gt;
-&lt;<span class="t">meta</span> <span class="a">name</span>="description" <span class="a">content</span>="빈소 확인부터 당일배송, 리본 문구까지 — 근조화환 주문 전 꼭 확인할 핵심만 정리했습니다."&gt;
+&lt;<span class="t">meta</span> <span class="a">name</span>="description" <span class="a">content</span>="빈소 확인부터 당일배송, 리본 문구까지. 근조화환 주문 전 꼭 확인할 핵심만 정리했습니다."&gt;
 &lt;<span class="t">link</span> <span class="a">rel</span>="canonical" <span class="a">href</span>="https://example.com/blog/geunjo-hwahwan"&gt;
 &lt;<span class="t">meta</span> <span class="a">property</span>="og:title" <span class="a">content</span>="근조화환, 보내기 전에 이것만은 꼭 확인하세요"&gt;
 &lt;<span class="t">meta</span> <span class="a">property</span>="og:image" <span class="a">content</span>="https://example.com/og.jpg"&gt;
@@ -445,6 +455,25 @@
 					<li><strong>네이버</strong>: 명확한 제목·소제목, 본문 텍스트 충분, 이미지 alt, 모바일 가독성. 서치어드바이저에 사이트·사이트맵 등록은 호스트에서.</li>
 					<li><strong>내부 링크</strong>: 관련 글/상품으로 서술형 앵커 텍스트(“여기 클릭” 금지).</li>
 				</ul>
+			</div>
+		</section>
+
+		<!-- DON'T -->
+		<section class="ds-sec" id="dont">
+			<h2>Guide</h2>
+			<h3>금지사항</h3>
+			<p class="lead">블로그 글(본문)에 쓰지 않는 표기 규칙입니다. 가독성·톤 일관성과 검색 품질을 위해 지킵니다.</p>
+			<div class="ds-block">
+				<h4>1. 줄표(<span class="em">—</span>, em dash) 사용 금지</h4>
+				<div class="desc">문장을 모호하게 잇는 줄표 <code class="inline">—</code> 대신 <strong>마침표·쉼표·괄호</strong>로 끊어 씁니다. 자동 생성된 듯한 인상을 줄이고 한국어 본문 톤을 지키기 위함입니다.</div>
+				<div class="ban">
+					<div class="ban-row bad"><span class="mk">✕</span><span>리본 문구까지 <span class="em">—</span> 처음이어도 실수 없이</span></div>
+					<div class="ban-row good"><span class="mk">✓</span><span>리본 문구까지 한 번에 정리했어요. 처음이어도 실수 없이</span></div>
+				</div>
+				<div class="ban">
+					<div class="ban-row bad"><span class="mk">✕</span><span>아랫줄엔 보내는 분 <span class="em">—</span> 이 두 줄만 기억하면 됩니다.</span></div>
+					<div class="ban-row good"><span class="mk">✓</span><span>아랫줄엔 보내는 분. 이 두 줄만 기억하면 됩니다.</span></div>
+				</div>
 			</div>
 		</section>
 

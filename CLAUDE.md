@@ -1,4 +1,4 @@
-# 블로그 본문 조각(완성본) 생성 규격 — Figma Blog_example 100%
+# 블로그 본문 조각(완성본) 생성 규격 · Figma Blog_example 100%
 
 이 저장소는 카페24/워드프레스형 호스트에 삽입하는 **블로그 본문 조각**을 생성하기 위한 템플릿이다.
 디자인·레이아웃은 **Figma `Blog_example`을 100% 반영**한다. 새 글은 아래 규격을 그대로 따른다.
@@ -48,7 +48,7 @@
     <section class="sec sec--quote">
       <div class="sec-quote-mark">“</div>
       <h3 class="sec-title">소제목, 핵심어는 <span class="hl">그린</span></h3>
-      <p class="sec-subtitle">서브타이틀 — 하단 divider</p>
+      <p class="sec-subtitle">서브타이틀 (하단 divider)</p>
       <div class="sec-figure"><img src="…"></div>                        (선택)
       <p class="sec-text">본문 …</p>
       <div class="checklist"><div class="check-item">항목</div> …</div>   (선택)
@@ -60,7 +60,7 @@
 ## 컴포넌트 카탈로그
 - **포스트 헤더**: `.post-hero`(히어로, 비율 16/13) + `.page-title` + `.post-lead` + `.post-meta`(날짜, 하단 divider).
 - **섹션 헤더 2종**: `.sec--bar`(그린 좌측 바) / `.sec--quote`(큰 따옴표 ❝ + `.sec-quote-mark`).
-- **서브타이틀**: `.sec-subtitle`(하단 divider) — 큰 따옴표 섹션의 리드 라인.
+- **서브타이틀**: `.sec-subtitle`(하단 divider). 큰 따옴표 섹션의 리드 라인.
 - **본문/강조**: `.sec-text`, 일반 `<strong>`, 핵심어 `<strong class="hl">`/`<span class="hl">`(그린).
 - **이미지**: 3분할 `.img-grid > .img-grid-item`, 단일 와이드 `.sec-figure`.
 - **체크리스트**: `.checklist > .check-item`(그린 체크).
@@ -85,6 +85,11 @@
 ## 작성 규칙(콘텐츠)
 - 본문 단락 강조는 `<strong>`, 핵심어/브랜드어는 `.hl`(그린), 단락 사이는 `<br><br>`.
 - 이미지는 `<img>`로 교체하거나 비워서 회색 자리표시(Figma 목업과 동일)로 둔다.
+
+## 금지사항 (표기)
+- **줄표(—, em dash) 사용 금지**: 본문에서 `—`로 문장을 잇지 않는다. 마침표·쉼표·괄호로 끊어 쓴다(자동 생성 인상 방지, 한국어 톤 유지).
+  - ❌ `리본 문구까지 — 처음이어도 실수 없이` → ✅ `리본 문구까지 정리했어요. 처음이어도 실수 없이`
+  - ❌ `아랫줄엔 보내는 분 — 이 두 줄만` → ✅ `아랫줄엔 보내는 분. 이 두 줄만`
 
 ## 검증 방법
 1. 정적 서버 실행: `node .serve.js` (저장소 루트, 8731).
