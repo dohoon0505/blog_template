@@ -96,6 +96,7 @@
 			<div class="grp">Guide</div>
 			<a href="#templates">템플릿 · 미리보기</a>
 			<a href="#method">작성 규격 (Method)</a>
+			<a href="#seo">SEO 검색최적화</a>
 		</nav>
 	</aside>
 
@@ -355,6 +356,85 @@
 &lt;<span class="t">main</span> <span class="a">class</span>="page"&gt;
   &lt;<span class="t">article</span>&gt; … &lt;/article&gt;
 &lt;/main&gt;</pre>
+			</div>
+		</section>
+
+		<!-- SEO -->
+		<section class="ds-sec" id="seo">
+			<h2>Guide</h2>
+			<h3>SEO 검색최적화</h3>
+			<p class="lead">네이버·구글이 선호하는 방식으로 블로그 조각을 작성하는 규칙입니다. 핵심 원칙: <strong>조각(본문)</strong>은 <code class="inline">&lt;script&gt;</code> 없이 <strong>시맨틱 + Microdata</strong>로, <strong>호스트 <code class="inline">&lt;head&gt;</code></strong>엔 <strong>JSON-LD·메타</strong>로. (claude-seo 스킬 방법론 기반)</p>
+
+			<div class="ds-block">
+				<h4>① 구조 &amp; 시맨틱</h4>
+				<ul style="margin:0;padding-left:18px;color:var(--ink-700);font-size:15px;line-height:1.9">
+					<li>제목 위계 준수: 글 제목 <code class="inline">h2.page-title</code> → 소제목 <code class="inline">h3.sec-title</code> (건너뛰기 금지).</li>
+					<li>본문은 <code class="inline">&lt;article&gt;</code>로 감싸고, 목록은 <code class="inline">&lt;ul&gt;/&lt;li&gt;</code>, 단락은 <code class="inline">&lt;p&gt;</code>로.</li>
+					<li>장식용 글리프(큰 따옴표)는 <code class="inline">aria-hidden="true"</code>.</li>
+				</ul>
+			</div>
+
+			<div class="ds-block">
+				<h4>② 구조화 데이터 (스크립트 없이)</h4>
+				<div class="desc">조각엔 <strong>Microdata</strong>를 직접 넣습니다(구글·네이버 모두 인식). 본문 제품 광고는 <code class="inline">Product</code>+<code class="inline">Offer</code>, 글 전체는 <code class="inline">BlogPosting</code>.</div>
+<pre>&lt;<span class="t">article</span> <span class="a">itemscope</span> <span class="a">itemtype</span>="https://schema.org/BlogPosting"&gt;
+  &lt;<span class="t">h2</span> <span class="a">itemprop</span>="headline"&gt;…&lt;/h2&gt;
+  &lt;<span class="t">time</span> <span class="a">datetime</span>="2024-10-20" <span class="a">itemprop</span>="datePublished"&gt;2024.10.20&lt;/time&gt;
+&lt;/article&gt;
+
+&lt;<span class="t">a</span> <span class="a">class</span>="promo" <span class="a">itemscope</span> <span class="a">itemtype</span>="https://schema.org/Product"&gt;
+  &lt;<span class="t">div</span> <span class="a">class</span>="promo-title" <span class="a">itemprop</span>="name"&gt;3단 근조화환 (기본형)&lt;/div&gt;
+  &lt;<span class="t">div</span> <span class="a">itemprop</span>="offers" <span class="a">itemscope</span> <span class="a">itemtype</span>="https://schema.org/Offer"&gt;
+    &lt;span <span class="a">itemprop</span>="price" <span class="a">content</span>="59000"&gt;59,000원&lt;/span&gt;
+    &lt;meta <span class="a">itemprop</span>="priceCurrency" <span class="a">content</span>="KRW"&gt;
+    &lt;link <span class="a">itemprop</span>="availability" <span class="a">href</span>="https://schema.org/InStock"&gt;
+  &lt;/div&gt;
+&lt;/a&gt;</pre>
+			</div>
+
+			<div class="ds-block">
+				<h4>③ 호스트 <code class="inline">&lt;head&gt;</code> — JSON-LD &amp; 메타 (권장)</h4>
+				<div class="desc">호스트(테마)에서 <code class="inline">&lt;head&gt;</code>를 편집할 수 있으면, 구글이 가장 선호하는 <strong>JSON-LD</strong>와 메타를 넣습니다. 제목 30~60자, 설명 120~160자, canonical·OG 필수.</div>
+<pre>&lt;<span class="t">title</span>&gt;근조화환 보내기 전 체크리스트 | 도랑플라워&lt;/title&gt;
+&lt;<span class="t">meta</span> <span class="a">name</span>="description" <span class="a">content</span>="빈소 확인부터 당일배송, 리본 문구까지 — 근조화환 주문 전 꼭 확인할 핵심만 정리했습니다."&gt;
+&lt;<span class="t">link</span> <span class="a">rel</span>="canonical" <span class="a">href</span>="https://example.com/blog/geunjo-hwahwan"&gt;
+&lt;<span class="t">meta</span> <span class="a">property</span>="og:title" <span class="a">content</span>="근조화환, 보내기 전에 이것만은 꼭 확인하세요"&gt;
+&lt;<span class="t">meta</span> <span class="a">property</span>="og:image" <span class="a">content</span>="https://example.com/og.jpg"&gt;
+
+&lt;<span class="t">script</span> <span class="a">type</span>="application/ld+json"&gt;
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "근조화환, 보내기 전에 이것만은 꼭 확인하세요",
+  "image": "https://example.com/hero.jpg",
+  "datePublished": "2024-10-20",
+  "dateModified": "2024-10-20",
+  "author":    { "@type": "Organization", "name": "도랑플라워" },
+  "publisher": { "@type": "Organization", "name": "도랑플라워",
+                 "logo": { "@type": "ImageObject", "url": "https://example.com/logo.png" } },
+  "mainEntityOfPage": "https://example.com/blog/geunjo-hwahwan"
+}
+&lt;/script&gt;</pre>
+			</div>
+
+			<div class="ds-block">
+				<h4>④ 이미지</h4>
+				<ul style="margin:0;padding-left:18px;color:var(--ink-700);font-size:15px;line-height:1.9">
+					<li>모든 이미지에 <strong>서술적 alt</strong>(10~125자, 파일명·키워드 나열 금지).</li>
+					<li>히어로(첫 화면=LCP)는 <code class="inline">fetchpriority="high"</code>, 나머지는 <code class="inline">loading="lazy" decoding="async"</code>.</li>
+					<li>레이아웃 컨테이너에 <code class="inline">aspect-ratio</code>를 줘 <strong>CLS</strong>(밀림)를 방지(본 디자인 적용 완료).</li>
+				</ul>
+			</div>
+
+			<div class="ds-block">
+				<h4>⑤ 콘텐츠 품질 (E-E-A-T) &amp; 네이버</h4>
+				<ul style="margin:0;padding-left:18px;color:var(--ink-700);font-size:15px;line-height:1.9">
+					<li><strong>경험·전문성</strong>: 실제 경험·구체 사례·1차 정보(직접 촬영 이미지)로 작성. 일반론 나열 금지.</li>
+					<li><strong>작성자·날짜</strong> 노출(<code class="inline">author</code>, <code class="inline">&lt;time&gt;</code>)로 신뢰 신호.</li>
+					<li><strong>분량</strong>: 정보형 글은 충분한 깊이(권장 1,500자+), 검색 의도에 정확히 답하기.</li>
+					<li><strong>네이버</strong>: 명확한 제목·소제목, 본문 텍스트 충분, 이미지 alt, 모바일 가독성. 서치어드바이저에 사이트·사이트맵 등록은 호스트에서.</li>
+					<li><strong>내부 링크</strong>: 관련 글/상품으로 서술형 앵커 텍스트(“여기 클릭” 금지).</li>
+				</ul>
 			</div>
 		</section>
 

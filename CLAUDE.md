@@ -74,6 +74,14 @@
 
 > 모든 컴포넌트의 라이브 렌더링·코드 스니펫은 디자인 시스템 사이트(`index.html`, GitHub Pages 루트)에서 확인한다.
 
+## SEO 검색최적화 규칙 (네이버·구글)
+- **시맨틱·위계**: `<article>` 안에 `h2.page-title` → `h3.sec-title` 순서 유지(건너뛰기 금지).
+- **구조화 데이터(조각)**: `<script>` 없이 **Microdata**로. 글은 `<article itemscope itemtype="https://schema.org/BlogPosting">`(headline·datePublished·author·image), 상품 광고는 `Product`+`Offer`(name·image·price·priceCurrency=KRW·availability·url).
+- **호스트 `<head>`**: 가능하면 JSON-LD(BlogPosting/Product)·`<title>`(30~60자)·`meta description`(120~160자)·canonical·OG를 호스트에서 추가(디자인 시스템 'SEO 검색최적화' 항목의 복붙 블록 사용).
+- **작성일/작성자**: `<time datetime="YYYY-MM-DD" itemprop="datePublished">` + `author`(Organization/Person) 노출 → E-E-A-T.
+- **이미지**: 서술적 `alt`(10~125자), 히어로는 `fetchpriority="high"`·나머지는 `loading="lazy" decoding="async"`. 컨테이너 `aspect-ratio`로 CLS 방지.
+- **콘텐츠**: 실제 경험·구체 사례 중심(E-E-A-T), 검색 의도에 정확히 답하기, 정보형은 충분한 분량. 내부 링크는 서술형 앵커.
+
 ## 작성 규칙(콘텐츠)
 - 본문 단락 강조는 `<strong>`, 핵심어/브랜드어는 `.hl`(그린), 단락 사이는 `<br><br>`.
 - 이미지는 `<img>`로 교체하거나 비워서 회색 자리표시(Figma 목업과 동일)로 둔다.
