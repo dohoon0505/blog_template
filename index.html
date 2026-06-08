@@ -92,6 +92,7 @@
 			<a href="#c-imggrid">이미지 그리드</a>
 			<a href="#c-figure">큰 이미지</a>
 			<a href="#c-check">체크리스트</a>
+			<a href="#c-promo">상품 광고</a>
 			<div class="grp">Guide</div>
 			<a href="#templates">템플릿 · 미리보기</a>
 			<a href="#method">작성 규격 (Method)</a>
@@ -274,6 +275,56 @@
 				</div>
 			</div>
 <pre>&lt;<span class="t">div</span> <span class="a">class</span>="checklist"&gt;&lt;div class="check-item"&gt;항목&lt;/div&gt;&lt;/div&gt;</pre>
+		</section>
+
+		<!-- PRODUCT PROMO -->
+		<section class="ds-sec" id="c-promo">
+			<h2>Components</h2>
+			<h3>상품 광고</h3>
+			<p class="lead">자연스럽게 구매로 이어지는 광고 슬롯. 문서 <strong>중앙</strong>엔 인라인 카드 <code class="inline">.promo</code>, <strong>최하단</strong>엔 배너 <code class="inline">.promo--banner</code>를 배치합니다.</p>
+			<div class="ds-block">
+				<h4>① 인라인 카드 — <code class="inline">.promo</code> (문서 중앙)</h4>
+				<div class="demo">
+					<div class="page">
+						<a class="promo" href="#c-promo" style="margin:0">
+							<div class="promo-media"></div>
+							<div class="promo-info">
+								<span class="promo-eyebrow">추천 솔루션</span>
+								<div class="promo-title">병원 CRM ‘리비짓’</div>
+								<p class="promo-desc">첫 문의부터 예약·재방문까지 한곳에서 관리하세요.</p>
+								<div class="promo-price"><span class="now">14일 무료체험</span></div>
+								<span class="promo-cta">무료로 시작하기 →</span>
+							</div>
+						</a>
+					</div>
+				</div>
+<pre>&lt;<span class="t">a</span> <span class="a">class</span>="promo" <span class="a">href</span>="…"&gt;
+  &lt;<span class="t">div</span> <span class="a">class</span>="promo-media"&gt;&lt;img src="…"&gt;&lt;/div&gt;
+  &lt;<span class="t">div</span> <span class="a">class</span>="promo-info"&gt;
+    &lt;span class="promo-eyebrow"&gt;추천&lt;/span&gt;
+    &lt;div class="promo-title"&gt;상품명&lt;/div&gt;
+    &lt;p class="promo-desc"&gt;한 줄 카피&lt;/p&gt;
+    &lt;div class="promo-price"&gt;&lt;del class="origin"&gt;정가&lt;/del&gt; &lt;span class="now"&gt;판매가&lt;/span&gt;&lt;/div&gt;
+    &lt;span class="promo-cta"&gt;구매하러 가기 →&lt;/span&gt;
+  &lt;/div&gt;
+&lt;/a&gt;</pre>
+			</div>
+			<div class="ds-block">
+				<h4>② 배너 CTA — <code class="inline">.promo--banner</code> (문서 최하단)</h4>
+				<div class="demo">
+					<div class="page">
+						<a class="promo promo--banner" href="#c-promo" style="margin:0">
+							<div class="promo-info">
+								<span class="promo-eyebrow">지금 시작하세요</span>
+								<div class="promo-title">바이럴은 좋은 경험에서 시작됩니다</div>
+								<p class="promo-desc">리비짓으로 첫 문의부터 재방문까지, 구매자 경험을 설계해보세요.</p>
+								<span class="promo-cta">14일 무료로 시작하기 →</span>
+							</div>
+						</a>
+					</div>
+				</div>
+<pre>&lt;<span class="t">a</span> <span class="a">class</span>="promo promo--banner" <span class="a">href</span>="…"&gt; … &lt;/a&gt;</pre>
+			</div>
 		</section>
 
 		<!-- TEMPLATES -->

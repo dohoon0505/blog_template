@@ -64,6 +64,12 @@
 - **본문/강조**: `.sec-text`, 일반 `<strong>`, 핵심어 `<strong class="hl">`/`<span class="hl">`(그린).
 - **이미지**: 3분할 `.img-grid > .img-grid-item`, 단일 와이드 `.sec-figure`.
 - **체크리스트**: `.checklist > .check-item`(그린 체크).
+- **상품 광고**: 인라인 카드 `.promo`(미디어+정보+CTA) / 하단 배너 `.promo--banner`(그린 배경 강한 CTA). 내부 `.promo-eyebrow`·`.promo-title`·`.promo-desc`·`.promo-price`(`.origin`/`.now`)·`.promo-cta`.
+
+## 상품 광고 배치 규칙
+- 글은 독자 질문에서 끝나지 않고, 관심 있을 후속 섹션(`.sec--bar`/`.sec--quote`)을 이어 작성한다.
+- **문서 중앙**(본문 섹션 사이)에 인라인 카드 `.promo` 1개, **문서 최하단**에 배너 `.promo--banner` 1개를 둔다.
+- 광고는 본문 맥락과 연결된 상품/혜택으로 자연스럽게 구매로 이어지게 쓴다(맥락 없는 노출 금지).
 
 > 모든 컴포넌트의 라이브 렌더링·코드 스니펫은 디자인 시스템 사이트(`index.html`, GitHub Pages 루트)에서 확인한다.
 

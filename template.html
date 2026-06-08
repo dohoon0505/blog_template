@@ -4,44 +4,84 @@
      · 복사해 글마다 내용만 교체.
      · <!DOCTYPE>/<html>/<head>/<body>/<script> 없이
        <style>@import…</style> + <main class="page"> 로 시작/끝.
-     · 이미지는 <div class="...">를 <img>로 교체하거나, 비우면 회색 자리표시.
+     · 이미지는 빈 div(회색 자리) 또는 <img>로 교체.
      · 섹션 헤더 2종: .sec--bar(그린 좌측 바) / .sec--quote(큰 따옴표 ❝)
+     · 상품 광고: 문서 "중앙"에 인라인 카드(.promo), "최하단"에 배너(.promo--banner).
+       → 자연스럽게 상품 구매로 이어지도록 배치.
      ============================================================ -->
 <style type="text/css">@import url("./style.css");</style>
 <main class="page">
 	<article>
 
-		<!-- 포스트 헤더: 히어로 / 제목 / 리드 / 날짜 -->
+		<!-- 포스트 헤더 -->
 		<div class="post-hero"><!-- <img src="…" alt="대표 이미지"> --></div>
 		<h2 class="page-title">{{글 제목}}</h2>
-		<p class="post-lead">{{리드 문단 — 한두 문장 요약}}</p>
+		<p class="post-lead">{{리드 — 한두 문장 요약}}</p>
 		<div class="post-meta">{{2024.00.00}}</div>
 
-		<!-- 섹션 ① : 그린 좌측 바 헤더 -->
+		<!-- 섹션 ① : 그린 좌측 바 + 3분할 이미지 -->
 		<section class="sec sec--bar">
 			<h3 class="sec-title">{{소제목}}</h3>
 			<p class="sec-text">{{본문. 강조 <strong>굵게</strong>, 핵심어 <strong class="hl">그린</strong>, 단락 사이 <br><br>}}</p>
-			<!-- (선택) 3분할 이미지 -->
 			<div class="img-grid">
-				<div class="img-grid-item"><!-- <img src="…"> --></div>
+				<div class="img-grid-item"></div>
 				<div class="img-grid-item"></div>
 				<div class="img-grid-item"></div>
 			</div>
 		</section>
 
-		<!-- 섹션 ② : 큰 따옴표 헤더 + 서브타이틀(divider) + 큰 이미지 -->
+		<!-- 섹션 ② : 큰 따옴표 + 서브타이틀(divider) + 큰 이미지 + 체크리스트 -->
 		<section class="sec sec--quote">
 			<div class="sec-quote-mark">“</div>
 			<h3 class="sec-title">{{소제목, 핵심어는 <span class="hl">그린</span>}}</h3>
 			<p class="sec-subtitle">{{한두 문장 리드 — 아래 divider}}</p>
 			<div class="sec-figure"><!-- <img src="…"> --></div>
 			<p class="sec-text">{{본문}}</p>
-			<!-- (선택) 그린 체크리스트 -->
 			<div class="checklist">
 				<div class="check-item">{{확인 항목 1}}</div>
 				<div class="check-item">{{확인 항목 2}}</div>
 			</div>
 		</section>
+
+		<!-- ★ 상품 광고 ① : 문서 중앙 (인라인 카드) -->
+		<a class="promo" href="{{상품 링크}}">
+			<div class="promo-media"><!-- <img src="{{상품 이미지}}"> --></div>
+			<div class="promo-info">
+				<span class="promo-eyebrow">{{추천 / AD}}</span>
+				<div class="promo-title">{{상품명}}</div>
+				<p class="promo-desc">{{한 줄 설득 카피}}</p>
+				<div class="promo-price"><del class="origin">{{정가}}</del> <span class="now">{{판매가/혜택}}</span></div>
+				<span class="promo-cta">{{구매하러 가기}} →</span>
+			</div>
+		</a>
+
+		<!-- 섹션 ③ : 그린 좌측 바 (독자 관심 후속 주제) -->
+		<section class="sec sec--bar">
+			<h3 class="sec-title">{{소제목}}</h3>
+			<p class="sec-text">{{본문}}</p>
+			<div class="checklist">
+				<div class="check-item">{{확인 항목 1}}</div>
+				<div class="check-item">{{확인 항목 2}}</div>
+			</div>
+		</section>
+
+		<!-- 섹션 ④ : 큰 따옴표 (마무리 메시지) -->
+		<section class="sec sec--quote">
+			<div class="sec-quote-mark">“</div>
+			<h3 class="sec-title">{{소제목, 핵심어는 <span class="hl">그린</span>}}</h3>
+			<p class="sec-subtitle">{{한두 문장 리드}}</p>
+			<p class="sec-text">{{본문}}</p>
+		</section>
+
+		<!-- ★ 상품 광고 ② : 문서 최하단 (배너 CTA) -->
+		<a class="promo promo--banner" href="{{상품 링크}}">
+			<div class="promo-info">
+				<span class="promo-eyebrow">{{지금 시작하세요}}</span>
+				<div class="promo-title">{{핵심 베네핏 한 줄}}</div>
+				<p class="promo-desc">{{짧은 설득 카피}}</p>
+				<span class="promo-cta">{{무료로 시작하기}} →</span>
+			</div>
+		</a>
 
 	</article>
 </main>
